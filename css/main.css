@@ -15,6 +15,16 @@ body {
 	padding-left: 2em;
 	padding-right: 2em;
 }
+.navbar-form .form-control {
+	border: 1px solid #D1B674;
+}
+.navbar-form .btn-default {
+	border: 1px solid #D1B674;
+	background-color: #E5CB98;
+}
+.navbar-form .glyphicon-search {
+	color: white;
+}
 .logo-banner {
 	text-align: center;
 }

@@ -61,6 +61,14 @@
           </div>
         </form>
 
+          <ul class="nav navbar-nav navbar-right">
+          <!-- Has current user been set? -->
+          <!-- php code goes here -->
+            <li <?php if($page === "auth.register"): ?>class="active" <?php endif ;?>><a href="?page=register">Register</a></li>
+            <li <?php if($page === "auth.login"): ?>class="active" <?php endif ;?>><a href="?page=login">Login</a></li>
+          
+          </ul>
+
 
         </div><!-- /.navbar-collapse -->
     </nav>
@@ -82,7 +90,7 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="path/to/swiper.jquery.min.js"></script>
+    <script src="js/swiper.jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/swiper.min.js"></script>

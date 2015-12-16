@@ -21,6 +21,14 @@ try {
 
 		break;
 
+
+	case 'register':
+
+		$controller = new AuthenticationController();
+		$controller->register();
+
+		break;
+
 	
 
 	default:
