@@ -1,6 +1,10 @@
 body {
 	font-family: 'Roboto Slab', serif;
 }
+@font-face {
+  font-family: 'palm-canyon-drive';
+  src: url(../fonts/PalmCanyonDrive.otf);
+}
 .navbar-default .navbar-nav > li > a {
 	color: #D1B674;
 	letter-spacing: .07em;
@@ -56,6 +60,43 @@ body {
 }
 .swiper-button-next {
 	background-image: url(../images/next-arrow.svg);
+}
+
+/*-----Regitester-------*/
+.reg-page {
+	background-image: url(../images/line-background.svg);
+
+}
+.reg-form {
+	border: 1.5px solid #D1B674;
+	padding: 3em;
+	box-sizing: bordr-box;
+	width: 500px;
+	margin-top: 5em;
+	background-color: white;
+}
+.reg-form > h1 {
+	font-family: 'palm-canyon-drive';
+	color: #D1B674;
+	font-size: 3.5em;
+	margin: 0;
+	padding-bottom: 1em;
+	text-align: center;
+}
+.reg-form label {
+	font-weight: 300;
+	color: #D1B674;
+	letter-spacing: .07em;
+}
+.reg-form .row {
+	padding: 0 3em;
+}
+.reg-form .btn-success {
+	background-color: transparent;
+	border: 2px solid #D1B674;
+	color: #D1B674;
+	float: right;
+	margin-right: 2em;
 }
 
 
