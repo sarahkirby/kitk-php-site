@@ -5,7 +5,7 @@ namespace App\Views;
 abstract class View 
 {
 	protected $data;
-	// protected static $auth;
+	protected static $auth;
 
 	public function __construct($data = [])
 	{
@@ -14,8 +14,8 @@ abstract class View
 
 	abstract public function render();
 
-	// public static function registerAuthenticationService($auth)
-	// {
-	// 	self::$auth = $auth;
-	// }
+	public static function registerAuthenticationService($auth)
+	{
+		self::$auth = $auth;
+	}
 }

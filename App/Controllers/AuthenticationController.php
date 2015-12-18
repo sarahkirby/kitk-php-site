@@ -32,12 +32,12 @@ class AuthenticationController extends Controller
 		$user = $this->getUserFormData();
 		#is there error in GET variable. If not then null. Into $error var.
 		$error = isset($_GET['error']) ? $_GET['error'] : null;
-		var_dump($error);
+		// var_dump($error);
 		$view = new LoginFormView(compact('user', 'error'));
 		$view->render();
 	}
 
-	# what is in the form
+	
 	public function attempt()
 	{
 		var_dump($_POST);

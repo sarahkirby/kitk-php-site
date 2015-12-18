@@ -29,6 +29,30 @@ try {
 
 		break;
 
+
+	case 'auth.store':
+
+		$controller = new AuthenticationController();
+		$controller->store();
+
+		break;
+
+
+	case 'login':
+
+		$controller = new AuthenticationController();
+		$controller->login();
+
+		break;
+
+
+	case 'auth.attempt':
+
+		$controller = new AuthenticationController();
+		$controller->attempt();
+
+		break;
+
 	
 
 	default:
