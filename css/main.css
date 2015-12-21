@@ -5,6 +5,9 @@ body {
   font-family: 'palm-canyon-drive';
   src: url(../fonts/PalmCanyonDrive.otf);
 }
+
+/*-----Index / Home page-----*/
+
 .navbar-default .navbar-nav > li > a {
 	color: #D1B674;
 	letter-spacing: .07em;
@@ -62,6 +65,56 @@ body {
 	background-image: url(../images/next-arrow.svg);
 }
 
+/*-----Types icons-----*/
+
+.icons-home {
+	padding: 3em 0;
+}
+.icons-home img {
+	max-height: 65px;
+}
+.icons-home h4 {
+	text-align: center;
+	color: #939598;
+	padding-top: 1em;
+	font-size: 1.2em;
+}
+.icons-home a {
+	text-decoration: none;
+}
+hr {
+    display: block;
+    height: 1.5px;
+    /*border: 0;*/
+    border-top: 1px solid #D1B674;
+    /*margin: 1em 0;*/
+    /*padding: 0; */
+}
+
+/*-----Latest Recipes-----*/
+
+.heading-center {
+	text-align: center;
+	font-weight: 300;
+	letter-spacing: .15em;
+	padding: 1em 0;
+}
+.latest-recipes h2 {
+	text-align: center;
+	line-height: 1.3em;
+	font-size: 1.5em;
+	font-weight: 300;
+}
+.latest-recipes h4 {
+	text-align: center;
+	letter-spacing: .08em;
+	font-size: 1em;
+	padding-bottom: 1.5em;
+}
+.latest-recipes {
+	padding-bottom: 1.5em;
+}
+
 /*-----Regitester-------*/
 .reg-page {
 	background-image: url(../images/line-background.svg);
@@ -99,6 +152,47 @@ body {
 	margin-right: 2em;
 }
 
+
+
+
+
+/*----Five column width index page----*/
+
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-5ths {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
+}
 
 
 
