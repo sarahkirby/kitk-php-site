@@ -67,7 +67,31 @@
 
 <!-- Latest Recipes -->
 <h1 class="heading-center">LATEST RECIPES</h1>
-<div class="latest-recipes row">
+
+
+<?php if(count($recipes) > 0): ?>
+
+    <div class="latest-recipes row">
+    
+        <?php foreach ($recipes as $recipe): ?>
+        
+            <div class="col-md-3 col-sm-6">
+                    <h2><?= $recipe->title; ?></h2>
+                    <p><?= $recipe->description; ?></p>
+            </div>
+        
+        <?php endforeach; ?>
+    
+
+    <?php else: ?>
+        <p>Weirdly enough, there are no movies to display. Spooky!!</p>
+    <?php endif; ?>
+
+    </div>
+ 
+
+<!-- <div class="latest-recipes row">
+
     <div class="col-md-3 col-sm-6">
         <img src="http://placehold.it/280x280" class="img-responsive center-block">
         <h2>Peanut Butter &amp; Jelly</h2>
@@ -91,7 +115,9 @@
         <h2>Hello</h2>
         <h4>READ MORE</h4>
     </div>
-</div>
+
+</div> -->
+
 
 <hr>
 
