@@ -3,16 +3,18 @@
 namespace App\Controllers;
 
 use App\Views\HomeView;
+use App\Models\Recipes;
 
 
 class HomeController extends Controller
 {
 	public function show()
 	{
+		$recipes = Recipes::all("title", true);
 		// $moviesuggest = $this->getMovieSuggestFormData();
 
 		// extracting data (moviesuggest) from form. Otherwise blank.
-		$view = new HomeView();
+		$view = new HomeView(compact('recipes'));
 		$view->render();
 	}
 
