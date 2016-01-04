@@ -5,7 +5,7 @@ $errors = $user->errors;
 ?>
 <div class="container-fluid reg-page">
 <div class="container reg-form">
-  <h1>Sign up</h1>
+  <h1 class="heading-script">Sign up</h1>
 
   <form id="registerNewUser" action="?page=auth.store" method="POST">
 

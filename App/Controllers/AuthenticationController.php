@@ -32,7 +32,7 @@ class AuthenticationController extends Controller
 		$user = $this->getUserFormData();
 		#is there error in GET variable. If not then null. Into $error var.
 		$error = isset($_GET['error']) ? $_GET['error'] : null;
-		// var_dump($error);
+		// ($error);
 		$view = new LoginFormView(compact('user', 'error'));
 		$view->render();
 	}
@@ -40,7 +40,7 @@ class AuthenticationController extends Controller
 	
 	public function attempt()
 	{
-		var_dump($_POST);
+		($_POST);
 		# login form - email and pword. These are sent through POST array. auth is found in index.php
 		if(static::$auth->attempt($_POST['email'],$_POST['password'])){
 			// login successful

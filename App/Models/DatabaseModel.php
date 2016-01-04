@@ -111,7 +111,7 @@ abstract class DatabaseModel
 		}
 
 		$statement = $db->prepare($query);
-		var_dump($statement);
+		// var_dump($statement);
 		$statement->execute();
 
 		// $record = $statement->fetch(PDO::FETCH_ASSOC);
@@ -394,7 +394,7 @@ abstract class DatabaseModel
 
 						case 'exists':
 							try {
-								var_dump($this->$column);
+								// var_dump($this->$column);
 								$record = new $value($this->$column);
 
 							} catch (ModelNotFoundException $e) {

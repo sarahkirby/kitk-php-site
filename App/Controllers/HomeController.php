@@ -1,5 +1,6 @@
 <?php 
 
+
 namespace App\Controllers;
 
 use App\Views\HomeView;
@@ -11,32 +12,29 @@ class HomeController extends Controller
 	public function show()
 	{
 		$recipes = Recipes::all("title", true);
-		// $moviesuggest = $this->getMovieSuggestFormData();
+		$newsletter = $this->getNewsletterData();
 
-		// extracting data (moviesuggest) from form. Otherwise blank.
-		$view = new HomeView(compact('recipes'));
+		$view = new HomeView(compact('recipes', 'newsletter'));
 		$view->render();
 	}
 
-	// public function getMovieSuggestFormData()
-	// {
-	// 	// When do you use session and when post?
-	// 	if(isset($_SESSION['moviesuggest'])){
-	// 		$moviesuggest = $_SESSION['moviesuggest'];
+	public function getNewsletterData()
+	{
+		// When do you use session and when post?
+		if(isset($_SESSION['newsletter'])){
+			$newsletter = $_SESSION['newsletter'];
 
-	// 		//clear input when page is refreshed
-	// 	} else {
-	// 		$moviesuggest = [
-	// 			'title' => "",
-	// 			'email' => "",
-	// 			'newsletter' => "",
-	// 			'error' => [
-	// 				'title' => "",
-	// 				'email' => "",
-	// 				'newsletter' => ""
-	// 			]
-	// 		];
-	// 	}
-	// 	return $moviesuggest;
-	// }
+			//clear input when page is refreshed
+		} else {
+			$newsletter = [
+				'name' => "",
+				'email' => "",
+				'error' => [
+					'name' => "",
+					'email' => ""
+				]
+			];
+		}
+		return $newsletter;
+	}
 }

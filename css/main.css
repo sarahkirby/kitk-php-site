@@ -8,6 +8,9 @@ body {
 
 /*-----Index / Home page-----*/
 
+
+/*-----Navbar-----*/
+
 .navbar-default .navbar-nav > li > a {
 	color: #D1B674;
 	letter-spacing: .07em;
@@ -32,6 +35,10 @@ body {
 .navbar-form .glyphicon-search {
 	color: white;
 }
+
+
+/*-----LogoBanner-----*/
+
 .logo-banner {
 	text-align: center;
 }
@@ -44,6 +51,10 @@ body {
 	color: #D1B674;
 	padding-bottom: 2.2em;
 }
+
+
+/*-----SwiperContainer-----*/
+
 .swiper-container {
     width: 100%;
     height: 500px;
@@ -115,7 +126,57 @@ hr {
 	padding-bottom: 1.5em;
 }
 
+/*-----Newsletter-------*/
+
+.container-newsletter {
+	padding-top: 1em;
+}
+.col-centered {
+	float: none;
+	margin: 0 auto;
+}
+
+.nl-signup {
+	width: 350px;
+}
+.heading-script {
+	font-family: 'palm-canyon-drive';
+	color: #E5CB98;
+	font-size: 3.5em;
+	margin: 0;
+	padding-bottom: 1em;
+	text-align: center;
+}
+.nl-signup h1 {
+	padding-top: 1em;
+}
+.nl-signup p {
+	text-align: center;
+	margin-bottom: 3.5em;
+}
+.nl-signup #newsletter {
+	width: 280px;
+	margin: 0 auto;
+}
+
+.vertical-line {
+	border-right: solid 1.5px #D1B674;
+	height: 
+}
+#newsletter .btn {
+	float: right;
+	border-radius: 10px;
+	padding: .3em .5em;
+	color: white;
+	background-color: #E5CB98;
+	border-color: #E5CB98;
+	letter-spacing: .1em;
+	font-size: 1.2em;
+}
+
+
 /*-----Regitester-------*/
+
 .reg-page {
 	background-image: url(../images/line-background.svg);
 
@@ -128,15 +189,7 @@ hr {
 	margin-top: 5em;
 	background-color: white;
 }
-.reg-form > h1 {
-	font-family: 'palm-canyon-drive';
-	color: #D1B674;
-	font-size: 3.5em;
-	margin: 0;
-	padding-bottom: 1em;
-	text-align: center;
-}
-.reg-form label {
+label {
 	font-weight: 300;
 	color: #D1B674;
 	letter-spacing: .07em;
@@ -156,7 +209,7 @@ hr {
 
 
 
-/*----Five column width index page----*/
+/*----Five column width index page search icons----*/
 
 .col-xs-5ths,
 .col-sm-5ths,

@@ -121,38 +121,72 @@
 
 <hr>
 
-<div class="row">
-    <div class="col-md-6 col-sm-12">
-        <h1>Sign up</h1>
-        <p>Sign up below for a monthly newsletter including recipes, give aways and more!</p>
 
-        <form id="newletter" action="" method="POST">
-        
-        <!-- add error class  -->
-          <div class="form-group <?php if ($error['title']):?> has-error <?php endif; ?>">
+<div class="row container-newsletter">
+    <div class="vertical-line col-md-6 col-sm-12">
+        <div class="nl-signup col-centered">
+            <h1 class="heading-script">Sign up</h1>
+            <p>Sign up below for a monthly newsletter including recipes, give aways and more!</p>
 
-            <label for="nl-name" class="control-label">Name</label>
-            <div class="">
-              <input class="form-control" id="nl-name" name="nl-name" value="<?php echo $title; ?>">
-              <span id="helpBlock" class="help-block"><?php echo $error['title']; ?></span>
-            </div>
-          </div>
+            <form id="newsletter" action="?page=newsletter" method="POST">
+            
+            <!-- add error class  -->
+              <div class="form-group">
 
-          <div class="form-group <?php if ($error['email']):?> has-error <?php endif ; ?>">
-            <label for="email" class="control-label">Email</label>
-            <div class="">
-              <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.com" value="<?php echo $email; ?>">
-              <span id="helpBlock" class="help-block"><?php echo $error['email']; ?></span>
-            </div>
-          </div>
+                <label for="nl-name" class="control-label">Name</label>
+                <div class="">
+                  <input class="form-control" id="nl-name" name="nl-name" value="<?php echo $name; ?>">
+                  <span id="helpBlock" class="help-block"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email" class="control-label">Email</label>
+                <div class="">
+                  <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.com" value="<?php echo $email; ?>">
+                  <span id="helpBlock" class="help-block"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <button class="btn btn-success">GO</button>
+              </div>
+            </form>
+        </div>
     </div>
 
+  
+
     <div class="col-md-6 col-sm-12">
-        
+        <div class="nl-signup col-centered">
+            <h1 class="heading-script">Request a Recipe!</h1>
+            <p>Sign up below for a monthly newsletter including recipes, give aways and more!</p>
+
+            <form id="newsletter" action="?page=newsletter" method="POST">
+            
+            <!-- add error class  -->
+              <div class="form-group <?php if ($error['name']):?> has-error <?php endif; ?>">
+
+                <label for="nl-name" class="control-label">Name</label>
+                <div class="">
+                  <input class="form-control" id="nl-name" name="nl-name" value="<?php echo $name; ?>">
+                  <span id="helpBlock" class="help-block"><?php echo $error['name']; ?></span>
+                </div>
+              </div>
+
+              <div class="form-group <?php if ($error['email']):?> has-error <?php endif ; ?>">
+                <label for="email" class="control-label">Email</label>
+                <div class="">
+                  <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.com" value="<?php echo $email; ?>">
+                  <span id="helpBlock" class="help-block"><?php echo $error['email']; ?></span>
+                </div>
+              </div>
+            </form>
+        </div>
     </div>    
 
 
-</div>
+</div> <!-- newsletter row  -->
 
 
 
