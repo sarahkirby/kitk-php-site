@@ -10,7 +10,12 @@ body {
 
 
 /*-----Navbar-----*/
-
+.navbar-form {
+	display: none;
+}
+.navbar {
+	margin-bottom: 0;
+}
 .navbar-default .navbar-nav > li > a {
 	color: #D1B674;
 	letter-spacing: .07em;
@@ -43,7 +48,7 @@ body {
 	text-align: center;
 }
 .logo-banner >img {
-	padding-top: 2em;
+	padding-top: 3.5em;
 }
 .logo-banner > h1 {
 	font-size: 1.5em;
@@ -205,6 +210,34 @@ label {
 	margin-right: 2em;
 }
 
+/*-----Recipes Page-----*/
+
+.rec-main {
+	background-color: #FCFCFC;
+	margin: 0;
+}
+.rec-main-left {
+	padding: 0;
+	background-color: white;
+}
+.rec-main-left > img {
+	position: relative;
+	height: 80%;
+	width: 80%;
+	margin-top: 10%;
+	margin-bottom: 10%;
+}
+.rec-main-left > h1 {
+	color: white;
+	font-size: 6vw;
+	font-weight: 300;
+	letter-spacing: .15em;
+	position: absolute;
+	z-index: 1;
+	left: 35%;
+	top: 40%;
+}
+
 
 
 
@@ -231,6 +264,11 @@ label {
         width: 20%;
         float: left;
     }
+	.rec-main-left > h1 {
+		/*font-size: 3em;*/
+		left: 35%;
+		top: 45%;
+	}
 }
 
 @media (min-width: 992px) {
@@ -238,6 +276,14 @@ label {
         width: 20%;
         float: left;
     }
+    .navbar-form {
+		display: block;
+	}
+	.rec-main-left > h1 {
+		font-size: 3vw;
+		left: 35%;
+		top: 45%;
+	}
 }
 
 @media (min-width: 1200px) {
@@ -245,6 +291,14 @@ label {
         width: 20%;
         float: left;
     }
+    .rec-main-left > img {
+		width: 70%;
+	}
+	.rec-main-left > h1 {
+		font-size: 2.5vw;
+		left: 40%;
+		top: 45%;
+	}
 }
 
 

@@ -53,8 +53,15 @@ try {
 
 		break;
 
-	
 
+	case 'recipes':
+
+		$controller = new RecipesController();
+		$controller->show();
+
+		break;
+
+		
 	default:
 		$controller = new ErrorController();
 		$controller->error404();
