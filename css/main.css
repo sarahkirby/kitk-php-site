@@ -114,6 +114,7 @@ hr {
 	font-weight: 300;
 	letter-spacing: .15em;
 	padding: 1em 0;
+	color: #D1B674;
 }
 .latest-recipes h2 {
 	text-align: center;
@@ -166,7 +167,7 @@ hr {
 
 .vertical-line {
 	border-right: solid 1.5px #D1B674;
-	height: 
+ 
 }
 #newsletter .btn {
 	float: right;
@@ -177,6 +178,17 @@ hr {
 	border-color: #E5CB98;
 	letter-spacing: .1em;
 	font-size: 1.2em;
+}
+
+/*----Request a Recipe----*/
+
+.nl-right > .heading-center {
+	padding-bottom: 0;
+	padding-top: 6vw;
+	font-size: 2.2em;
+}
+.nl-right > p {
+	text-align: center;
 }
 
 
@@ -212,13 +224,31 @@ label {
 
 /*-----Recipes Page-----*/
 
+
+/*---Add Recipe Button---*/
+
+.add-recipe {
+	background-color: #CAF9E1;
+	padding: 2em 0;
+}
+.add-recipe > p > .btn {
+	color: #9CE5BD;	
+	border: none;
+} 
+.add-recipe > p {
+	text-align: center;
+	margin: 0;
+}
+
+
+
 .rec-main {
-	background-color: #FCFCFC;
+	background-color: #FCF7F7;
 	margin: 0;
 }
 .rec-main-left {
 	padding: 0;
-	background-color: white;
+	background-color: #FCFCFC;
 }
 .rec-main-left > img {
 	position: relative;
@@ -228,7 +258,7 @@ label {
 	margin-bottom: 10%;
 }
 .rec-main-left > h1 {
-	color: white;
+	color: #D1B674;
 	font-size: 6vw;
 	font-weight: 300;
 	letter-spacing: .15em;
@@ -237,6 +267,39 @@ label {
 	left: 35%;
 	top: 40%;
 }
+.rec-main-right {
+	padding: 13vw 0;
+	background-color: #FCF7F7;
+}
+.rec-main-right > img {
+	zoom: 0.5;
+	padding-bottom: 2.5em;
+}
+.rec-main-right > .heading-script {
+	padding-bottom: 0.4em;
+	font-size: 3em;
+}
+.rec-main-right > p {
+	text-align: center;
+	color: #D1B674;
+}
+.underline {
+	width: 300px;
+}
+.rec-main-right ul {
+	padding-top: 2vh;
+	padding-bottom: 3vh;
+	padding-left: 22%;
+}
+.rec-main-right ul li {
+	color: #D1B674;
+	list-style: none;
+	line-height: 1.8em;
+	font-size: 1.1em;
+}
+
+/*-----Recipe Page - Icons-----*/
+
 
 
 
@@ -269,6 +332,12 @@ label {
 		left: 35%;
 		top: 45%;
 	}
+	.rec-main-right > .heading-script {
+		font-size: 3.5em;
+	}
+	.rec-main-right ul {
+		padding-left: 34%;
+	}
 }
 
 @media (min-width: 992px) {
@@ -279,10 +348,30 @@ label {
     .navbar-form {
 		display: block;
 	}
+
+	/*---Recipes Page---*/
+
 	.rec-main-left > h1 {
 		font-size: 3vw;
 		left: 35%;
 		top: 45%;
+	}
+	.rec-main-right ul {
+		padding-left: 30%;
+	}
+	.rec-main-right {
+		padding: 8vw 0;
+	}
+	.rec-icons {
+		padding: 5em 0;
+	}
+	.rec-icons > .icons-home {
+		border-right: solid 1.5px #D1B674;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+	.icons-home:last-child {
+		border: none;
 	}
 }
 
@@ -298,6 +387,30 @@ label {
 		font-size: 2.5vw;
 		left: 40%;
 		top: 45%;
+	}
+	.rec-main-right > .heading-script {
+		font-size: 4.5em;
+	}
+	.rec-main-right ul {
+		padding-left: 37%;
+		padding-top: 2.5em;
+		padding-bottom: 3em;
+	}
+	.rec-main-right {
+		padding-top: 10vw;
+		padding-bottom: 0;
+	}
+
+
+
+	.rec-main-right > p {
+		font-size: 1.2em;
+	}
+
+
+	.rec-main-right ul li {
+		line-height: 2em;
+		font-size: 1.3em;
 	}
 }
 

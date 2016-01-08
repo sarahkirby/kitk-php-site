@@ -9,7 +9,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 class Recipes extends DatabaseModel
 {
 	protected static $tableName = "recipes";
-	protected static $columns = ['id', 'title', 'description', 'image'];
+	protected static $columns = ['id', 'title', 'subtitle', 'description', 'ingredients', 'image'];
 	// protected static $fakeColumns = ['tags'];
 	protected static $validationRules = [
 					"title"       => "minlength:1",

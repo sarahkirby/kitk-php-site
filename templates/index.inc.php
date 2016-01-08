@@ -130,22 +130,17 @@
 
             <form id="newsletter" action="?page=newsletter" method="POST">
             
-            <!-- add error class  -->
-              <div class="form-group">
+            <div class="form-group <?php if ($newsletter['error']['name']):?>has-error <?php endif; ?>">
 
                 <label for="nl-name" class="control-label">Name</label>
-                <div class="">
-                  <input class="form-control" id="nl-name" name="nl-name" value="<?php echo $name; ?>">
-                  <span id="helpBlock" class="help-block"></span>
-                </div>
-              </div>
+                  <input class="form-control" id="nl-name" name="name" value="<?php echo $newsletter['name']; ?>">
+                  <span id="helpBlock" class="help-block"><?php echo $newsletter['error']['name']; ?></span>
+            </div>
 
-              <div class="form-group">
+              <div class="form-group <?php if ($newsletter['error']['email']):?> has-error <?php endif ; ?>">
                 <label for="email" class="control-label">Email</label>
-                <div class="">
-                  <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.com" value="<?php echo $email; ?>">
-                  <span id="helpBlock" class="help-block"></span>
-                </div>
+                  <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.com" value="<?php echo $newsletter['email']; ?>">
+                  <span id="helpBlock" class="help-block"><?php echo $newsletter['error']['email']; ?></span>
               </div>
 
               <div class="form-group">
@@ -155,34 +150,51 @@
         </div>
     </div>
 
-  
 
-    <div class="col-md-6 col-sm-12">
-        <div class="nl-signup col-centered">
+    <div class="nl-right col-md-6 col-sm-12">
+    <?php if(! static::$auth->check()): ?>
+
+      <h1 class="heading-center">REQUEST A RECIPE!</h1>
+      <p><a href="?page=register">Register</a> or <a href="?page=login">Login</a> to request KITK's take on your favourite recipe.</p> 
+
+
+    <?php else: ?>
+      
+      <div class="nl-signup col-centered">
             <h1 class="heading-script">Request a Recipe!</h1>
             <p>Sign up below for a monthly newsletter including recipes, give aways and more!</p>
 
-            <form id="newsletter" action="?page=newsletter" method="POST">
+            <form id="request" action="?page=request" method="POST">
             
-            <!-- add error class  -->
-              <div class="form-group <?php if ($error['name']):?> has-error <?php endif; ?>">
-
-                <label for="nl-name" class="control-label">Name</label>
-                <div class="">
-                  <input class="form-control" id="nl-name" name="nl-name" value="<?php echo $name; ?>">
-                  <span id="helpBlock" class="help-block"><?php echo $error['name']; ?></span>
-                </div>
+            
+              <div class="form-group <?php if ($request['error']['name']):?> has-error <?php endif; ?>">
+                <label for="request-name" class="control-label">Name</label>
+                <input class="form-control" id="request-name" name="name" value="<?php echo $request['name']; ?>">
+                <span id="helpBlock" class="help-block"><?php echo $request['error']['name']; ?></span>
               </div>
 
-              <div class="form-group <?php if ($error['email']):?> has-error <?php endif ; ?>">
+              <div class="form-group <?php if ($request['error']['email']):?> has-error <?php endif ; ?>">
                 <label for="email" class="control-label">Email</label>
-                <div class="">
-                  <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.com" value="<?php echo $email; ?>">
-                  <span id="helpBlock" class="help-block"><?php echo $error['email']; ?></span>
-                </div>
+                <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.com" value="<?php echo $request['email']; ?>">
+                <span id="helpBlock" class="help-block"><?php echo $request['error']['email']; ?></span>
               </div>
+
+              <div class="form-group <?php if ($request['error']['request']):?> has-error <?php endif ; ?>">
+                <label for="request" class="control-label">Recipe Request</label>
+                <input type="textarea" class="form-control" id="request" name="request" value="<?php echo $request['request']; ?>">
+                <span id="helpBlock" class="help-block"><?php echo $request['error']['request']; ?></span>
+              </div>
+
+              <div class="form-group">
+                <button class="btn btn-success" name="request-var">GO</button>
+              </div>
+
             </form>
         </div>
+
+
+    <?php endif; ?>
+        
     </div>    
 
 

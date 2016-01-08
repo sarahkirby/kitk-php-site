@@ -54,7 +54,7 @@ class AuthenticationController extends Controller
 	public function logout()
 	{
 		 static::$auth->logout();
-		 header("Location: ?page=login");
+		 header("Location: ?page=home");
 		 exit();
 	}
 

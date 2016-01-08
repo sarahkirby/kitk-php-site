@@ -22,6 +22,22 @@ try {
 		break;
 
 
+	case 'newsletter':
+
+		$controller = new NewsletterController();
+		$controller->show();
+		
+		break;
+
+
+	case 'request':
+
+		$controller = new RequestController();
+		$controller->show();
+
+		break;
+
+
 	case 'register':
 
 		$controller = new AuthenticationController();
@@ -54,6 +70,14 @@ try {
 		break;
 
 
+	case 'logout':
+
+		$controller = new AuthenticationController();
+		$controller->logout();
+
+		break;
+
+
 	case 'recipes':
 
 		$controller = new RecipesController();
@@ -61,7 +85,15 @@ try {
 
 		break;
 
-		
+
+	case 'recipe.create':
+
+		$controller = new RecipesController();
+		$controller->create();
+
+		break;
+
+
 	default:
 		$controller = new ErrorController();
 		$controller->error404();

@@ -8,6 +8,7 @@ class HomeView extends TemplateView
 	// call master include header and footer. content function in master. Here it calls to include about.inc
 	public function render() 
 	{
+
 		extract($this->data);
 		$page = "index";
 		$page_title = "Katie in the Kitchen";
