@@ -92,10 +92,11 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="js/swiper.jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/swiper.min.js"></script>
+    <script src="js/taggle.min.js"></script>
+    <script src="js/main.js"></script>
     <script>
       var mySwiper = new Swiper ('.swiper-container', {
         // Optional parameters
@@ -114,7 +115,8 @@
         
         // And if we need scrollbar
         scrollbar: '.swiper-scrollbar'
-      })        
+      });
+
     </script>
   </body>
 </html>

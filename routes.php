@@ -86,10 +86,46 @@ try {
 		break;
 
 
+	case 'recipe':
+
+		$controller = new RecipesController();
+		$controller->singlepage();
+
+		break;
+
+	case 'recipe.edit':
+
+		$controller = new RecipesController();
+		$controller->edit();
+
+		break;
+
+
 	case 'recipe.create':
 
 		$controller = new RecipesController();
 		$controller->create();
+
+		break;
+
+	case 'recipe.update':
+		
+		$controller = new RecipesController();
+		$controller->update();
+
+		break;
+
+	case 'recipe.store':
+		
+		$controller = new RecipesController();
+		$controller->store();
+
+		break;
+
+	case 'recipe.destroy':
+		
+		$controller = new RecipesController();
+		$controller->destroy();
 
 		break;
 

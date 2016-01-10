@@ -9,17 +9,17 @@ use Intervention\Image\ImageManagerStatic as Image;
 class Recipes extends DatabaseModel
 {
 	protected static $tableName = "recipes";
-	protected static $columns = ['id', 'title', 'subtitle', 'description', 'ingredients', 'image'];
-	// protected static $fakeColumns = ['tags'];
+	protected static $columns = ['id', 'title', 'subtitle', 'description', 'ingredients', 'poster', 'date_created', 'category'];
+	protected static $fakeColumns = ['tags'];
 	protected static $validationRules = [
 					"title"       => "minlength:1",
-					"description" => "minlength:10"
+					"ingredients" => "minlength:10"
 
 	];
 	public function comments()
 	{
 		// Comment class. 'movie_id' is a column and $this->id id value(?)
-		$result = Comment::allBy('movie_id', $this->id);
+		$result = Comment::allBy('recipe_id', $this->id);
 		return $result;
 	}
 	public function getTags()
@@ -29,8 +29,8 @@ class Recipes extends DatabaseModel
 		$db = static::getDatabaseConnection();
 		$query = " SELECT id, tag FROM tags ";
 		// joining tables
-		$query .= " JOIN movies_tag ON id = tag_id ";
-		$query .= " WHERE movie_id =:id";
+		$query .= " JOIN recipes_tag ON id = tag_id ";
+		$query .= " WHERE recipe_id =:id";
 
 		$statement = $db->prepare($query);
 		// var_dump($statement);
@@ -72,9 +72,9 @@ class Recipes extends DatabaseModel
 			// if we are going to add new tags in tags table
 			$this->addNewTags($db, $tags);
 			$tagsIds = $this->getTagIds($db, $tags);
-			$this->deleteAllTagsFromMovie($db);
+			$this->deleteAllTagsFromRecipes($db);
 			// insert new tags in Movies table
-			$this->insertTagsForMovie($db, $tagsIds);
+			$this->insertTagsForRecipes($db, $tagsIds);
 
 			$db->commit();
 
@@ -124,29 +124,29 @@ class Recipes extends DatabaseModel
 		$record = $statement->fetchAll(PDO::FETCH_COLUMN);
 		return $record;
 	}
-	private function insertTagsForMovie($db, $tagsIds)
+	private function insertTagsForRecipes($db, $tagsIds)
 	{
-		$query = "INSERT IGNORE INTO movies_tag (movie_id, tag_id) VALUES ";
+		$query = "INSERT IGNORE INTO recipes_tag (recipe_id, tag_id) VALUES ";
 
 		$tagvalues = [];
 		for ($i=0; $i < count($tagsIds); $i++) { 
-			array_push($tagvalues, "(:movie_id{$i}, :tag_id{$i})");
+			array_push($tagvalues, "(:recipe_id{$i}, :tag_id{$i})");
 		}
 		$query .= implode(",", $tagvalues);
 		$statement = $db->prepare($query);
 		for ($i=0; $i < count($tagsIds); $i++) { 
-			$statement->bindValue(":movie_id{$i}", $this->id);
+			$statement->bindValue(":recipe_id{$i}", $this->id);
 			$statement->bindValue(":tag_id{$i}", $tagsIds[$i]);
 		}
 		$statement->execute();
 	}
-	private function deleteAllTagsFromMovie($db)
+	private function deleteAllTagsFromRecipes($db)
 	{
 		// NO SPACE BECAUSE GOING TO BIND WITH OTHER VALUES ?
-		$query = "DELETE FROM movies_tag WHERE 	movie_id= :movie_id";
+		$query = "DELETE FROM recipes_tag WHERE 	recipe_id= :recipe_id";
 		$statement = $db->prepare($query);
 		// var_dump($statement);
-		$statement->bindValue(":movie_id", $this->id);
+		$statement->bindValue(":recipe_id", $this->id);
 		$statement->execute();
 	}
 	public function savePoster($filename)
@@ -186,7 +186,7 @@ class Recipes extends DatabaseModel
 		move_uploaded_file($filename, $destination);
 
 		// poster comes from the table columns
-		$this->image = $newFileName;
+		$this->poster = $newFileName;
 
 		// 2400x300
 		if (! is_dir("./images/poster/300h/")){
@@ -195,7 +195,7 @@ class Recipes extends DatabaseModel
 		// Intervention Image API. Open image file - (make)
 		$img = Image::make($destination);
 		// resize image
-		$img->fit(240,300);
+		$img->fit(300,300);
 		//  size image in this destination
 		$img->save("./images/poster/300h/" . $newFileName);
 
@@ -205,7 +205,7 @@ class Recipes extends DatabaseModel
 		}
 
 		$img = Image::make($destination);
-		$img->fit(80,100);
+		$img->fit(600,600);
 		$img->save("./images/poster/100h/" . $newFileName);
 	}
 	public static function search($searchQuery)

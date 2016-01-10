@@ -76,15 +76,15 @@
         <?php foreach ($recipes as $recipe): ?>
         
             <div class="col-md-3 col-sm-6">
+                    <img src="./images/poster/300h/<?= $recipe->poster ?>" alt="<?= $recipe->title ?> Recipe" class="img-responsive center-block">
                     <h2><?= $recipe->title; ?></h2>
-                    <p><?= $recipe->description; ?></p>
+                     <h4><a href="?page=recipe&amp;id=<?= $recipe->id; ?>">READ MORE</a></h4>
             </div>
-        
         <?php endforeach; ?>
     
 
     <?php else: ?>
-        <p>Weirdly enough, there are no movies to display. Spooky!!</p>
+        <p>Recipe currently unavaliable.</p>
     <?php endif; ?>
 
     </div>

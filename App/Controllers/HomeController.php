@@ -11,11 +11,13 @@ class HomeController extends Controller
 {
 	public function show()
 	{
-		$recipes = Recipes::all("title", true);
+		$pageNumber = 1;
+		$pageSize = 4;
+		$recipes = Recipes::all("date_created", false, $pageNumber, $pageSize);	
 		$newsletter = $this->getNewsletterData();
 		$request = $this->getRequestData();
 
-		$view = new HomeView(compact('recipes', 'newsletter', 'request'));
+		$view = new HomeView(compact('recipes', 'newsletter', 'request', 'pageNumber', 'pageSize'));
 		$view->render();
 	}
 
