@@ -9,18 +9,50 @@ use App\Views\NewsletterSuccessView;
 class NewsletterController extends NewsletterTryController
 {
 
+	
+	public function getFormData()
+	{
+		
+		$expectedVar = ['name', 'email'];
+
+		//passing each value through the foreach loop.
+		foreach ($expectedVar as $variable) {
+			
+			// title, email, newsletter are stored in $variable
+
+			$this->data['error'][$variable]= "";
+
+			if(isset($_POST[$variable])) {
+				$this->data[$variable] = $_POST[$variable];
+				
+			} else {
+				$this->data[$variable] = "";
+			}
+		
+		}
+		
+	}
+	
+	public function resetSessionData() 
+	{
+		// resetting variables. Clear form otherwise input from user stays in form field.
+		$_SESSION['newslettererror'] = NULL;
+		$_SESSION['newsletter'] = NULL;
+		
+	}
+
 	public function show()
 	{
-
-		$newsletter = $this->getPostData();
-
-		// var_dump($values);
+		
+		
+		var_dump($_POST);
 
 		$this->resetSessionData();
 
 		// capture suggester data
-		$this->getFormData($newsletter);
-
+		$this->getFormData();
+		var_dump($this->getFormData());
+		die();
 		// validate form data - true or false
 		if (! $this->isFormValid($newsletter) ) {
 
@@ -43,25 +75,7 @@ class NewsletterController extends NewsletterTryController
 		// $hostEmail = new HostEmailView($this->newsletter);
 		// $hostEmail->render();
 	}
-	public function getPostData()
-	{
-		if(isset($_POST)) {
-    		$newsletter = $_POST;
 
-    		// var_dump($values);
-
-		
-		} return $newsletter;
-
-	}
-	public function resetSessionData() 
-	{
-		// resetting variables. Clear form otherwise input from user stays in form field.
-		$_SESSION['newslettererror'] = NULL;
-		$_SESSION['newsletter'] = NULL;
-
-		
-	}
 }
 
 

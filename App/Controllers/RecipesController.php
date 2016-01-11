@@ -14,7 +14,7 @@ class RecipesController extends Controller
 		// $pageNumber = 1;
 		// $pageSize = 1;
 		$recmain = Recipes::all("date_created", false, 1, 1);
-		$smoothies = Recipes::allBy("category", "smoothie", "category", true);
+		$smoothies = Recipes::allBy("category", "smoothie", "category", false);
 		$snacks = Recipes::allBy("category", "snack", "category", true);
 
 
@@ -65,7 +65,8 @@ class RecipesController extends Controller
 	public function update()
 	{
 		static::$auth->mustBeAdmin();
-		$recipe = new Recipes($_POST);
+		$recipe = new Recipes($_POST['id']);
+		$recipe->processArray($_POST);
 
 		if(is_array($recipe->tags)){
 			$recipe->tags = implode(",", $recipe->tags);

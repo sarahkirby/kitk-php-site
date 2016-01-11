@@ -6,7 +6,7 @@
 
 <div class="row rec-main">
 	<div class="col-md-7 col-sm-12 rec-main-left">
-		<h1>RECIPES</h1>
+		<!-- <h1>RECIPES</h1> -->
 		<?php if(count($recmain) > 0): ?>
 		<?php foreach ($recmain as $recipe): ?>
 			<img src="./images/poster/100h/<?= $recipe->poster ?>" alt="<?= $recipe->title ?> Recipe" class="img-responsive center-block">	

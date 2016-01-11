@@ -57,17 +57,17 @@ if($recipe->id){
         <div class="form-group <?php if($errors['poster']): ?> has-error <?php endif; ?>">
             <label for="poster" class="control-label">Poster Image </label>
             <div>
-              <input type="file" class="form-control" id="poster" name="poster">
+              <input type="file" class="form-control" id="poster" name="poster" value="<?= $recipe->poster; ?>">
             </div>
             <?php if($recipe->poster != ""): ?>
               <div>
                 <img src="./images/poster/300h/<?= $recipe->poster ?>" alt="image">
                 </div>
                 <div>
-                <div class="checkbox">
-                  <label><input type="checkbox" name="removeImage" value="true">Remove Image</label>
-                  </div>
-              </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="removeImage" value="true">Remove Image</label>
+                    </div>
+                </div>
 
             <?php else: ?>
               <div>

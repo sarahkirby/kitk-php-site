@@ -145,7 +145,7 @@ hr {
 }
 
 .nl-signup {
-	width: 350px;
+	max-width: 350px;
 }
 .heading-script {
 	font-family: 'palm-canyon-drive';
@@ -166,12 +166,7 @@ hr {
 	width: 280px;
 	margin: 0 auto;
 }
-
-.vertical-line {
-	border-right: solid 1.5px #D1B674;
- 
-}
-#newsletter .btn {
+#newsletter .btn, #request .btn {
 	float: right;
 	border-radius: 10px;
 	padding: .3em .5em;
@@ -181,16 +176,22 @@ hr {
 	letter-spacing: .1em;
 	font-size: 1.2em;
 }
+.container-newsletter hr {
+	margin-top: 6em;
+}
 
 /*----Request a Recipe----*/
 
 .nl-right > .heading-center {
 	padding-bottom: 0;
-	padding-top: 6vw;
+	padding-top: 8vw;
 	font-size: 2.2em;
 }
 .nl-right > p {
 	text-align: center;
+}
+.nl-right p a {
+	color: #E5CB98;
 }
 
 
@@ -418,7 +419,30 @@ label {
 }
 
 
+/*-----Footer-----*/
 
+footer {
+	background-color: #F1F2F2;
+	padding-top: 1.5em;
+	padding-bottom: .7em;
+	margin-top: 4em;
+}
+footer ul li {
+	list-style: none;
+	display: inline-block;
+	padding: 0 .25em;
+}
+footer ul, footer p {
+	text-align: center;
+	padding: .25em 0;
+}
+footer ul li a:hover {
+	color: #D1B674;
+	text-decoration: none;
+}
+footer span {
+	color: #D1B674;
+}
 
 
 
@@ -464,6 +488,13 @@ label {
     }
     .navbar-form {
 		display: block;
+	}
+	.vertical-line {
+		border-right: solid 1.5px #D1B674;
+		padding-bottom: 2em;
+	}
+	.container-newsletter hr {
+		display: none;
 	}
 
 	/*---Recipes Page---*/
@@ -517,14 +548,9 @@ label {
 		padding-top: 10vw;
 		padding-bottom: 0;
 	}
-
-
-
 	.rec-main-right > p {
 		font-size: 1.2em;
 	}
-
-
 	.rec-main-right ul li {
 		line-height: 2em;
 		font-size: 1.3em;
@@ -532,7 +558,7 @@ label {
 }
 
 
-
+vertical-line
 
 
 

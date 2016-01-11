@@ -18,26 +18,26 @@ class NewsletterTryController extends Controller
 						];
 	}
 
-	public function getFormData($data)
-	{
+	// public function getFormData($data)
+	// {
 
-		$expectedVar = ['name', 'email', 'request'];
+	// 	$expectedVar = ['name', 'email'];
 
-		//passing each value through the foreach loop.
-		foreach ($expectedVar as $variable) {
+	// 	//passing each value through the foreach loop.
+	// 	foreach ($expectedVar as $variable) {
 
-			// title, email, newsletter are stored in $variable
+	// 		// title, email, newsletter are stored in $variable
 
-			$data['error'][$variable]="";
+	// 		$data['error'][$variable]="";
 
-			if(isset($_POST[$variable])) {
-				$data[$variable] = $_POST[$variable];
-			} else {
-				$data[$variable] = "";
-			}
-			// var_dump($_POST);
-		}
-	}
+	// 		if(isset($_POST[$variable])) {
+	// 			$data[$variable] = $_POST[$variable];
+	// 		} else {
+	// 			$data[$variable] = "";
+	// 		}
+	// 		// var_dump($_POST);
+	// 	}
+	// }
 	public function isFormValid($data)
 	{
 		$valid = true;

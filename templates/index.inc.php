@@ -88,42 +88,12 @@
     <?php endif; ?>
 
     </div>
- 
-
-<!-- <div class="latest-recipes row">
-
-    <div class="col-md-3 col-sm-6">
-        <img src="http://placehold.it/280x280" class="img-responsive center-block">
-        <h2>Peanut Butter &amp; Jelly</h2>
-        <h4>READ MORE</h4>
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-        <img src="http://placehold.it/280x280" class="img-responsive center-block">
-        <h2>Hello</h2>
-        <h4>READ MORE</h4>
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-        <img src="http://placehold.it/280x280" class="img-responsive center-block">
-        <h2>Hello</h2>
-        <h4>READ MORE</h4>
-    </div>
-
-    <div class="col-md-3 col-sm-6">
-        <img src="http://placehold.it/280x280" class="img-responsive center-block">
-        <h2>Hello</h2>
-        <h4>READ MORE</h4>
-    </div>
-
-</div> -->
-
 
 <hr>
 
 
 <div class="row container-newsletter">
-    <div class="vertical-line col-md-6 col-sm-12">
+    <div class="vertical-line col-md-6 col-sm-12 col-xs-12">
         <div class="nl-signup col-centered">
             <h1 class="heading-script">Sign up</h1>
             <p>Sign up below for a monthly newsletter including recipes, give aways and more!</p>
@@ -147,11 +117,16 @@
                 <button class="btn btn-success">GO</button>
               </div>
             </form>
+
         </div>
+        
     </div>
 
+    
 
-    <div class="nl-right col-md-6 col-sm-12">
+    <div class="nl-right col-md-6 col-sm-12 col-xs-12">
+    <hr>
+
     <?php if(! static::$auth->check()): ?>
 
       <h1 class="heading-center">REQUEST A RECIPE!</h1>

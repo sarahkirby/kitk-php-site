@@ -80,6 +80,27 @@
     <?php $this->content(); ?>
 
 
+    <footer class="row">
+      <div class="col-md-4">
+        <ul>
+          <li><a href="?page=home">Home</a></li>
+          <li>&#8226;</li>
+          <li><a href="?page=recipes">Recipes</a></li>
+          <li>&#8226;</li>
+          <li>Blog</li>
+          <li>&#8226;</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+
+      <div class="col-md-4">
+        <p><span>&copy; Katie in the Kitchen 2016</span></p>
+      </div>
+
+      <div class="col-md-4">
+        <p>Follow us</p>
+      </div>
+    </footer>
 
       </div><!-- /.container-fluid -->
 

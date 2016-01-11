@@ -10,6 +10,7 @@ class HomeView extends TemplateView
 	{
 
 		extract($this->data);
+		var_dump(['error']);
 		$page = "index";
 		$page_title = "Katie in the Kitchen";
 		include "templates/master.inc.php";
