@@ -8,15 +8,7 @@ use App\Views\NewsletterSuccessView;
 
 class NewsletterTryController extends Controller
 {
-	// $data?
-	private $data = [];
 
-	public function __construct()
-	{
-		$this->data = [
-							'error' =>[]
-						];
-	}
 
 	// public function getFormData($data)
 	// {

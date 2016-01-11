@@ -95,7 +95,8 @@
 <div class="row container-newsletter">
     <div class="vertical-line col-md-6 col-sm-12 col-xs-12">
         <div class="nl-signup col-centered">
-            <h1 class="heading-script">Sign up</h1>
+            <h1><span class="nl-heading">Subscribe to our</span> <span>NEWSLETTER</span></h1>
+
             <p>Sign up below for a monthly newsletter including recipes, give aways and more!</p>
 
             <form id="newsletter" action="?page=newsletter" method="POST">
@@ -135,7 +136,12 @@
 
     <?php else: ?>
       
-      <div class="nl-signup col-centered">
+      <h1 class="heading-center">REQUEST A RECIPE!</h1>
+      <p>Click here to request KITK's take on your favourite recipe.</p>
+
+
+
+      <!-- <div class="nl-signup col-centered">
             <h1 class="heading-script">Request a Recipe!</h1>
             <p>Sign up below for a monthly newsletter including recipes, give aways and more!</p>
 
@@ -165,7 +171,7 @@
               </div>
 
             </form>
-        </div>
+        </div> -->
 
 
     <?php endif; ?>

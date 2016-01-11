@@ -90,27 +90,60 @@
     <?php endif; ?>
 
     </div><!-- recipes row -->
+
     <hr>
+
+<!-- Snacks Section -->
 
 	<h1 class="heading-center">SNACKS</h1>
 
 	<?php if(count($snacks) > 0): ?>
 
 	<div class="latest-recipes row">
+		<?php foreach ($snacks as $snack): ?>
 
-	<?php foreach ($snacks as $snack): ?>
+				<div class="col-md-3 col-sm-6">
+	                    <img src="./images/poster/300h/<?= $snack->poster ?>" alt="<?= $snack->title ?> Recipe" class="img-responsive center-block">
+	                    <h2><?= $snack->title; ?></h2>
+	                    <h4><a href="?page=recipe&amp;id=<?= $snack->id; ?>">READ MORE</a></h4>
+	            </div>
+	        <?php endforeach; ?>
+	    
 
-		<div class="col-md-3 col-sm-6">
-                    <img src="./images/poster/300h/<?= $snack->poster ?>" alt="<?= $snack->title ?> Recipe" class="img-responsive center-block">
-                    <h2><?= $snack->title; ?></h2>
-                    <h4><a href="?page=recipe&amp;id=<?= $snack->id; ?>">READ MORE</a></h4>
-            </div>
-        <?php endforeach; ?>
-    
+	    <?php else: ?>
+	        <p>Recipe currently unavaliable.</p>
+	    <?php endif; ?>
+	</div> <!-- snack row-->
 
-    <?php else: ?>
-        <p>Recipe currently unavaliable.</p>
-    <?php endif; ?>
+	<hr>
+
+<!-- Desserts Section -->
+
+	<h1 class="heading-center">DESSERTS</h1>
+
+	<?php if(count($desserts) > 0): ?>
+
+	<div class="latest-recipes row">
+		<?php foreach ($desserts as $dessert): ?>
+				<div class="col-md-3 col-sm-6">
+	                    <img src="./images/poster/300h/<?= $dessert->poster ?>" alt="<?= $dessert->title ?> Recipe" class="img-responsive center-block">
+	                    <h2><?= $dessert->title; ?></h2>
+	                    <h4><a href="?page=recipe&amp;id=<?= $dessert->id; ?>">READ MORE</a></h4>
+	            </div>
+	        <?php endforeach; ?>
+	    
+
+	    <?php else: ?>
+	        <p>Recipe currently unavaliable.</p>
+	    <?php endif; ?>
+	</div> <!-- desserts row-->
+
+
+
+
+
+
+
 
 </div> <!-- container  -->
 

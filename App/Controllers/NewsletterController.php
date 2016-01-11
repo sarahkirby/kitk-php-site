@@ -6,10 +6,24 @@ use App\Views\ThankyouEmailView;
 use App\Views\NewsletterSuccessView;
 
 
-class NewsletterController extends NewsletterTryController
+class NewsletterController
 {
+	private $newsletter = [];
 
-	
+	public function __construct()
+	{
+		$this->newsletter = [
+							'error' =>[]
+						];
+	}
+
+	public function resetSessionData() 
+	{
+		// resetting variables. Clear form otherwise input from user stays in form field.
+		$_SESSION['newslettererror'] = NULL;
+		$_SESSION['newsletter'] = NULL;
+		
+	}
 	public function getFormData()
 	{
 		
@@ -20,44 +34,49 @@ class NewsletterController extends NewsletterTryController
 			
 			// title, email, newsletter are stored in $variable
 
-			$this->data['error'][$variable]= "";
+			$this->newsletter['error'][$variable]= "";
 
 			if(isset($_POST[$variable])) {
-				$this->data[$variable] = $_POST[$variable];
+				$this->newsletter[$variable] = $_POST[$variable];
 				
 			} else {
-				$this->data[$variable] = "";
+				$this->newsletter[$variable] = "";
 			}
 		
 		}
 		
 	}
-	
-	public function resetSessionData() 
+	public function isFormValid()
 	{
-		// resetting variables. Clear form otherwise input from user stays in form field.
-		$_SESSION['newslettererror'] = NULL;
-		$_SESSION['newsletter'] = NULL;
-		
+		$valid = true;
+
+		if(strlen($this->newsletter['name']) == 0) {
+			$this->newsletter['error']['name'] = "Enter your name";
+			$valid = false;
+		}
+		// comparing email input against pre defined constant email. If not true (valid) error is true.
+		if (! filter_var($this->newsletter['email'], FILTER_VALIDATE_EMAIL)) {
+			$this->newsletter['error']['email'] = "Enter a valid email address";
+			$valid = false;
+		}  
+		return $valid;
 	}
+	
 
 	public function show()
 	{
-		
-		
-		var_dump($_POST);
+
 
 		$this->resetSessionData();
 
 		// capture suggester data
 		$this->getFormData();
-		var_dump($this->getFormData());
-		die();
+
 		// validate form data - true or false
-		if (! $this->isFormValid($newsletter) ) {
+		if (! $this->isFormValid() ) {
 
 			// Storing input values. So if there is an error the user's input is retained.
-			$_SESSION['newsletter'] = $newsletter;
+			$_SESSION['newsletter'] = $this->newsletter;
 			header("Location:./#newsletter");
 			return;
 		}
@@ -67,7 +86,7 @@ class NewsletterController extends NewsletterTryController
 		$view->render();
 
 		//send email to the suggester
-		$suggesterEmail = new ThankyouEmailView($newsletter);
+		$suggesterEmail = new ThankyouEmailView($this->newsletter);
 		$suggesterEmail->render();
 		
 

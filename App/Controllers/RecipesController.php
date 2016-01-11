@@ -6,6 +6,7 @@ use App\Views\RecipesView;
 use App\Views\SingleRecipeView;
 use App\Views\RecipeCreateView;
 use App\Models\Recipes;
+use App\Models\Comment;
 
 class RecipesController extends Controller
 {
@@ -16,19 +17,20 @@ class RecipesController extends Controller
 		$recmain = Recipes::all("date_created", false, 1, 1);
 		$smoothies = Recipes::allBy("category", "smoothie", "category", false);
 		$snacks = Recipes::allBy("category", "snack", "category", true);
+		$desserts = Recipes::allBy("category", "dessert", "category", false);
 
 
-		$view = new RecipesView(compact('recmain', 'smoothies', 'snacks'));
+		$view = new RecipesView(compact('recmain', 'smoothies', 'snacks', 'desserts'));
 		$view->render();
 	}
 	public function singlepage()
 	{
 		$recipe = new Recipes((int)$_GET['id']);
-		// $newcomment = $this->getCommentFormData();
-		// $comments = $movie->comments();
-		// $tags = $recipe->getTags();
+		$newcomment = $this->getCommentFormData();
+		$comments = $recipe->comments();
+		$tags = $recipe->getTags();
 
-		$view = new SingleRecipeView(compact('recipe', 'tags'));
+		$view = new SingleRecipeView(compact('recipe', 'newcomment', 'comments', 'tags'));
 		$view->render();
 	}
 
@@ -117,6 +119,16 @@ class RecipesController extends Controller
 			$recipe = new Recipes((int)$id);
 		}
 		return $recipe;
+	}
+	public function getCommentFormData($id = null){
+		if(isset($_SESSION['comment.form'])){
+			$newcomment = $_SESSION['comment.form'];
+			unset($_SESSION['comment.form']);
+		} else {
+			// new page for form if movies is not set. Refreshed.
+			$newcomment = new Comment((int)$id);
+		}
+		return $newcomment;
 	}
 }
 	

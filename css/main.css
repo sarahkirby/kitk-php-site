@@ -5,7 +5,6 @@ body {
   font-family: 'palm-canyon-drive';
   src: url(../fonts/PalmCanyonDrive.otf);
 }
-
 /*-----Index / Home page-----*/
 
 
@@ -147,6 +146,12 @@ hr {
 .nl-signup {
 	max-width: 350px;
 }
+.nl-heading {
+	font-family: 'palm-canyon-drive';
+	color: #E5CB98;
+	font-size: 1em;
+	letter-spacing: 0;
+}
 .heading-script {
 	font-family: 'palm-canyon-drive';
 	color: #E5CB98;
@@ -155,12 +160,25 @@ hr {
 	padding-bottom: 1em;
 	text-align: center;
 }
+.nl-signup > h1 {
+	line-height: 1.2em;
+	text-align: center;
+}
+h1 > span {
+	color: #E5CB98;
+	font-family: 'Roboto Slab';
+	font-size: .9em;
+	font-weight: 300;
+	letter-spacing: .2em;
+	/*border-bottom: 1px solid #D1B674;*/
+}
 .nl-signup h1 {
-	padding-top: 1em;
+	padding-top: .5em;
 }
 .nl-signup p {
 	text-align: center;
-	margin-bottom: 3.5em;
+	margin-bottom: 2em;
+	margin-top: 1em;
 }
 .nl-signup #newsletter {
 	width: 280px;
@@ -349,7 +367,7 @@ label {
 
 
 .rec-main {
-	background-color: #FCF7F7;
+	background-color: #F5F7F7;
 	margin: 0;
 }
 .rec-main-left {
@@ -375,7 +393,7 @@ label {
 }
 .rec-main-right {
 	padding: 13vw 0;
-	background-color: #FCF7F7;
+	background-color: #F5F7F7;
 }
 .rec-main-right > img {
 	zoom: 0.5;
@@ -407,16 +425,39 @@ label {
 
 /*-----Single Recipe Page-----*/
 
+.spacer {
+	margin-top: 5em;
+}
+.spacer > img {
+	padding-bottom: 2em;
+}
 .single-recipe {
 	background-color: white;
 	margin: 0 auto;
 }
-.single-recipe > .heading-script {
-	
+.single-recipe .heading-script {
+	padding-bottom: .2em;
+	padding-top: .3em;
+	color: #A7A9AC;
 }
-.single-recipe > img {
+.single-recipe img {
 	width: 80vw;
+	padding: 3em 0;
 }
+.single-recipe ul {
+	list-style: none;
+	padding-left: 0;
+	line-height: 1.8em;
+}
+.recipe-desc > p {
+	padding-left: 3em;
+	line-height: 1.5em;
+	max-width: 450px;
+}
+.single-recipe .vertical-line {
+	padding-left: 5em;
+}
+
 
 
 /*-----Footer-----*/
