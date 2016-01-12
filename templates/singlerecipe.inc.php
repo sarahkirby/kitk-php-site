@@ -26,7 +26,7 @@
 		
 	</div>
 	<div class="col-md-6">
-		<img src="./images/poster/100h/<?= $recipe->poster ?>" alt="<?= $recipe->title ?> Recipe" class="img-responsive center-block">
+		<img src="./images/poster/300h/<?= $recipe->poster ?>" alt="<?= $recipe->title ?> Recipe" class="img-responsive center-block">
 	</div>
 	
 	<div class="col-md-3">
@@ -47,32 +47,6 @@
 	</div>
 
 </div>
-
-<h3>Comments</h3>
-
-	  <?php if(count($comments) > 0) : ?>
-	  	<?php $count = 0; ?>
-
-
-  	  <?php foreach ($comments as $comment) : ?>
-  	    <?php $count++; ?>
-
-		  <div class="media">
-		  	<div class="media-left">
-			  	<!-- from https://en.gravatar.com/site/implement/images/php/  48 is size and identicon is type of icon -->
-			  		<img class="media-object" src="<?= $comment->user()->gravatar(48, 'retro') ; ?>" alt="avatar">
-			  	<!-- id, user_id and comment come from user table -->
-	  	    </div>
-	  	  	<div class="media-body">
-				  		<h3 class="media-heading"># <?= $count;?> <?= $comment->user()->username; ?></h3>
-				  		<p><?= $comment->comment; ?></p>
-	  	  	</div>
-	  	  </div>
-				  <?php endforeach; ?>
-
-			  	  <?php else: ?>
-			  	  	<p>No comments to show</p>
-			  	  <?php endif; ?>
           
           <h4>Add Comment to '<?= $recipe->title ?>'</h4>
           <?php if (static::$auth->check()): ?>
@@ -99,6 +73,33 @@
           <?php else: ?>
             <p>You need to be <a href="./?page=login">logged in</a> to add a comment.</p>
           <?php endif; ?>
+
+
+          <h3>Comments</h3>
+
+	  <?php if(count($comments) > 0) : ?>
+	  	
+
+
+  	  <?php foreach ($comments as $comment) : ?>
+  	    
+
+		  <div class="media">
+		  	<div class="media-left">
+			  	<!-- from https://en.gravatar.com/site/implement/images/php/  48 is size and identicon is type of icon -->
+			  		<img class="media-object" src="<?= $comment->user()->gravatar(48, 'retro') ; ?>" alt="avatar">
+			  	<!-- id, user_id and comment come from user table -->
+	  	    </div>
+	  	  	<div class="media-body">
+				  		<h4 class="media-heading"><?= $comment->user()->username; ?></h4>
+				  		<p><?= $comment->comment; ?></p>
+	  	  	</div>
+	  	  </div>
+				  <?php endforeach; ?>
+
+			  	  <?php else: ?>
+			  	  	<p>No comments to show</p>
+			  	  <?php endif; ?>
 
 </div> <!-- container -->
 

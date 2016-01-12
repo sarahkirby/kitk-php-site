@@ -69,8 +69,7 @@ abstract class DatabaseModel
 			if(isset($input[$column]))
 				$this->$column = $input[$column];
 		}
-
-		foreach(static::$fakeColumns as $column){
+		foreach (static::$fakeColumns as $column) {
 			if(isset($input[$column]))
 				$this->$column = $input[$column];
 		}
@@ -330,83 +329,71 @@ abstract class DatabaseModel
 
 	public function isValid()
 	{
+
 		$valid = true;
-		
-			// splitting up rules array. When more than one rule..these are found in User.php
-			foreach (static::$validationRules as $column => $rules) {
-				$this->errors[$column] = null;
-				$rules = explode(",", $rules);
-
-				foreach ($rules as $rule) {
-					if(strstr($rule, ":")){
-						$rule = explode(":", $rule);
-						// storing the value and the rule.
-						$value = $rule[1];
-						$rule = $rule[0];
-					}
-					switch ($rule) {
-						case 'minlength':
-							// var_dump($this->$column);
-							if(strlen($this->$column) < $value) {
-								$valid = false;
-								$this->errors[$column] = "Must be atleast $value characters long.";
-							}
-							break;
-
-						case 'maxlength':
-							if(strlen($this->$column) > $value) {
-								$valid = false;
-								$this->errors[$column] = "Must be no more than $value characters long.";
-							}
-							break;
-
-						case 'numeric':
-							if(! is_numeric($this->$column)){
-								$valid = false;
-								$this->errors[$column] = "Must be a number.";
-							}
-							break;
-
-						case 'email':
-							if (! filter_var($this->$column, FILTER_VALIDATE_EMAIL)) {
-								$valid = false;
-								$this->errors[$column] = "Enter a valid email address";
-							}
-							break;
-
-						case 'match':
-						# password 2 is the value?
-						if ($this->$column !== $this->$value){
+		foreach (static::$validationRules as $column => $rules) {
+			$this->errors[$column] = null;
+			$rules = explode(",", $rules);
+			foreach ($rules as $rule) {
+				if(strstr($rule, ":")){
+					$rule = explode(":", $rule);
+					$value = $rule[1];
+					$rule = $rule[0];
+				}
+				switch ($rule) {
+					case 'minlength':
+						// var_dump($this->$column);
+						if(strlen($this->$column) < $value){
 							$valid = false;
-							$this->errors[$column = "Must match with the {$value} field."];
+							$this->errors[$column] = "Must be at least $value characters long.";
 						}
 						break;
-						#unique is a rule, value is App\Models\User. The class User is callling this function
-						case 'unique':               #column = email. Is it present.$this->$column is the value the user enters
-							try {
-							$record = $value::findBy($column, $this->$column);
-							} catch (ModelNotFoundException $e) {
-							break;
-							}
+					case 'maxlength':
+						if(strlen($this->$column) > $value){
 							$valid = false;
-							$this->errors[$column] = "This email is already in use";
+							$this->errors[$column] = "Must be no more than $value characters long.";
+						}
+						break;
+					case 'numeric':
+						if(! is_numeric($this->$column)){
+							$valid = false;
+							$this->errors[$column] = "Must be a number.";
+						}
+						break;
+					case 'email':
+						if(! filter_var($this->$column, FILTER_VALIDATE_EMAIL)){
+							$valid = false;
+							$this->errors[$column] = "Must be a valid email address.";
+						}
+						break;
+					case 'match':
+						if( $this->$column !== $this->$value){
+							$valid = false;
+							$this->errors[$column] = "Must match with the $value field.";
+						}
+						break;
+					case 'unique':
+						try {
+							$record = $value::findBy($column, $this->$column);
+						} catch (ModelNotFoundException $e) {
 							break;
-
-						case 'exists':
-							try {
-								// var_dump($this->$column);
-								$record = new $value($this->$column);
-
-							} catch (ModelNotFoundException $e) {
-								$valid = false;
-								$this->errors[$column] = "This value does not exist.";
-							}
-					}
-
+						}
+						$valid = false;
+						$this->errors[$column] = "This email is already in use";
+						break;
+					case 'exists':
+						try {
+							$record = new $value($this->$column);
+						} catch (ModelNotFoundException $e) {
+							$valid = false;
+							$this->errors[$column] = "This value does not exist.";
+							break;
+						}
+						
 				}
-				
 			}
-
+			
+		}
 		return $valid;
 	}
 

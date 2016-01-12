@@ -1,5 +1,5 @@
 <div class="logo-banner">
-    <img src="images/logo-banner.svg" class="img-responsive center-block" alt="Katie in the Kitchen logo">
+    <img src="images/logo-banner.svg" class="img-responsive center-block" alt="Katie in the Kitchen logo" onerror="this.src='images/logo-banner-error.png'">
     <h1>Katie in the Kitchen</h1>
 </div>
 
@@ -33,31 +33,31 @@
 <div class="container">
 <div class="row">
     <div class="icons-home col-md-5ths col-sm-4 col-xs-6">
-        <a href=""><img src="images/dessert-icon.svg" class="img-responsive center-block">
+        <a href="?page=recipes#desserts"><img src="images/dessert-icon.svg" class="img-responsive center-block" onerror="this.src='images/dessert-icon-error.png'">
             <h4>Desserts</h4>
         </a>
     </div>
 
     <div class="icons-home col-md-5ths col-sm-4 col-xs-6">
-       <a href=""><img src="images/glutenfree-icon.svg" class="img-responsive center-block">
+       <a href="?page=recipes#glutenfree"><img src="images/glutenfree-icon.svg" class="img-responsive center-block" onerror="this.src='images/glutenfree-icon-error.png'">
             <h4>Gluten Free</h4>
        </a>
     </div>
 
     <div class="icons-home col-md-5ths col-sm-4 col-xs-6">
-       <a href=""><img src="images/snacks-icon.svg" class="img-responsive center-block">
+       <a href="?page=recipes#snacks"><img src="images/snacks-icon.svg" class="img-responsive center-block" onerror="this.src='images/snacks-icon-error.png'">
             <h4>Snacks</h4>
        </a>
     </div>
 
     <div class="icons-home col-md-5ths col-sm-4 col-xs-6">
-       <a href=""><img src="images/smoothies-icon.svg" class="img-responsive center-block">
+       <a href="?page=recipes#smoothies"><img src="images/smoothies-icon.svg" class="img-responsive center-block" onerror="this.src='images/smoothies-icon-error.png'">
             <h4>Smoothies</h4>
        </a>
     </div>
 
     <div class="icons-home col-md-5ths col-sm-4 col-xs-6">
-       <a href=""><img src="images/vegan-icon.svg" class="img-responsive center-block">
+       <a href="?page=recipes#vegan"><img src="images/vegan-icon.svg" class="img-responsive center-block" onerror="this.src='images/vegan-icon-error.png'">
             <h4>Vegan</h4>
        </a>
     </div>

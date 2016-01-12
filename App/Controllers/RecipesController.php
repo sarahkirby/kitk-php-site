@@ -44,63 +44,64 @@ class RecipesController extends Controller
 	public function store()
 	{
 		static::$auth->mustBeAdmin();
+
 		$recipe = new Recipes($_POST);
 
 		if(is_array($recipe->tags)){
 			$recipe->tags = implode(",", $recipe->tags);
 		}
-
-		if(! $recipe->isValid() ) {
-			//  details from post stored in here
+		if(! $recipe->isValid()){
 			$_SESSION['recipe.create'] = $recipe;
 			header("Location: ?page=recipe.create");
 			exit();
 		}
-		if ($_FILES['poster']['error'] === UPLOAD_ERR_OK){
-		// 'poster' is name in the form. Associtve array - info about name and temp name
-		$recipe->savePoster($_FILES['poster']['tmp_name']);
-		}
-		$recipe->save();
-		$recipe->saveTags();
-		header("Location: ?page=recipe&id=" . $recipe->id);
-	}
-	public function update()
-	{
-		static::$auth->mustBeAdmin();
-		$recipe = new Recipes($_POST['id']);
-		$recipe->processArray($_POST);
 
-		if(is_array($recipe->tags)){
-			$recipe->tags = implode(",", $recipe->tags);
-			// var_dump($recipe->tags);
-		}
-		// var_dump($recipe);
-		// saving in database
-		if(! $recipe->isValid() ) {
-			//  details from post stored in here
-			$_SESSION['recipe.create'] = $recipe;
-			header("Location: ?page=recipe.edit&id=" . $_POST['id']);
-			exit();
-		}
-		if ($_FILES['poster']['error'] === UPLOAD_ERR_OK){
-		// 'poster' is name in the form. Associtve array - info about name and temp name
+		if($_FILES['poster']['error'] === UPLOAD_ERR_OK){
 			$recipe->savePoster($_FILES['poster']['tmp_name']);
-		} else if(isset($_POST['removeImage']) && $_POST['removeImage'] === "true") {
-			$recipe->poster = null;
+		}
 
-		}	
 		$recipe->save();
 		$recipe->saveTags();
 		header("Location: ?page=recipe&id=" . $recipe->id);
 	}
 	public function edit()
 	{
+
 		static::$auth->mustBeAdmin();
 		$recipe = $this->getFormData($_GET['id']);
 		$recipe->loadTags();
 
+
 		$view = new RecipeCreateView(compact('recipe', 'tags'));
 		$view->render();
+	}
+	public function update()
+	{
+		static::$auth->mustBeAdmin();
+
+		$recipe = new Recipes($_POST['id']);
+		$recipe->processArray($_POST);
+
+		if(is_array($recipe->tags)){
+			$recipe->tags = implode(",", $recipe->tags);
+		}
+		
+		if(! $recipe->isValid()){
+			$_SESSION['recipe.create'] = $recipe;
+			header("Location: ?page=recipe.edit&id=".$_POST['id']);
+			exit();
+		}
+
+		if($_FILES['poster']['error'] === UPLOAD_ERR_OK){
+			$recipe->savePoster($_FILES['poster']['tmp_name']);
+		} else if(isset($_POST['removeImage']) && $_POST['removeImage'] === "true") {
+			$recipe->poster = null;
+		}
+
+
+		$recipe->save();
+		$recipe->saveTags();
+		header("Location: ?page=recipe&id=" . $recipe->id);
 	}
 	public function destroy()
 	{

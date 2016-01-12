@@ -155,7 +155,7 @@ class Recipes extends DatabaseModel
 		$finfo = new finfo(FILEINFO_MIME_TYPE);
 		// return file type of uploaded image
 		$mime = $finfo->file($filename);
-		// var_dump($mime);
+		 // var_dump($mime);
 
 		// extentsions for file type. creating extensions
 		$extentsions = [
@@ -173,6 +173,7 @@ class Recipes extends DatabaseModel
 		// creates unique file name - temporary file name
 		$newFileName = uniqid() . $extentsion;
 		// var_dump($newFileName);
+
 
 		// create new folder
 		$folder = "./images/poster/originals";
@@ -225,16 +226,16 @@ class Recipes extends DatabaseModel
 		// var_dump($result);
 
 		// select this value ??? movie.id left join taglist right join. movi.id and taglist are variables
-		$query = " SELECT movies.id, title, year, description, taglist, 
+		$query = " SELECT recipes.id, title, subtitle, description, taglist, 
 						 -- search against search term. * 2 gives search preference to title results
                         MATCH(title) AGAINST(@searchterm) * 2 AS score_title, 
                         MATCH(description) AGAINST(@searchterm) AS score_description,
                         MATCH(taglist) AGAINST(@searchterm IN BOOLEAN MODE) * 1.5 AS score_tag
-                    FROM movies
+                    FROM recipes
                     LEFT JOIN (
-                        SELECT movie_id, GROUP_CONCAT(tag SEPARATOR ' ') AS taglist FROM tags
-                        RIGHT JOIN movies_tag ON movies_tag.tag_id = id
-                        GROUP BY movie_id) AS tags ON movies.id = movie_id
+                        SELECT recipe_id, GROUP_CONCAT(tag SEPARATOR ' ') AS taglist FROM tags
+                        RIGHT JOIN recipes_tag ON recipes_tag.tag_id = id
+                        GROUP BY recipe_id) AS tags ON recipes.id = recipe_id
                     WHERE 
                         MATCH(title) AGAINST(@searchterm) OR
                         MATCH(description) AGAINST(@searchterm) OR
@@ -248,7 +249,7 @@ class Recipes extends DatabaseModel
 		// var_dump($record);
 
 		while ($record = $statement->fetch(PDO::FETCH_ASSOC)) {
-			$model = new Movies();
+			$model = new Recipes();
 			$model->data = $record;
 			array_push($models, $model);
 		}

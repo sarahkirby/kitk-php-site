@@ -14,7 +14,7 @@
 	</div>
 
 	<div class="col-md-5 col-sm-12 rec-main-right clear-fix">
-		<img src="images/logo-banner.svg" class="img-responsive center-block" alt="Katie in the Kitchen logo">
+		<img src="images/logo-banner.svg" class="img-responsive center-block" alt="Katie in the Kitchen logo" onerror="this.src='images/logo-banner-error.png'">
 		<h1 class="heading-script"><?= $recipe->title; ?></h1>
 		<p><?= $recipe->subtitle; ?></p>
 		<hr class="underline">
@@ -36,31 +36,31 @@
 
 	<div class="row rec-icons">
 	    <div class="icons-home col-md-5ths col-sm-4 col-xs-6">
-	        <a href=""><img src="images/dessert-icon.svg" class="img-responsive center-block">
+	        <a href="#desserts"><img src="images/dessert-icon.svg" class="img-responsive center-block" onerror="this.src='images/dessert-icon-error.png'">
 	            <h4>Desserts</h4>
 	        </a>
 	    </div>
 
 	    <div class="icons-home col-md-5ths col-sm-4 col-xs-6">
-	       <a href=""><img src="images/glutenfree-icon.svg" class="img-responsive center-block">
+	       <a href="#glutenfree"><img src="images/glutenfree-icon.svg" class="img-responsive center-block" onerror="this.src='images/glutenfree-icon-error.png'">
 	            <h4>Gluten Free</h4>
 	       </a>
 	    </div>
 
 	    <div class="icons-home col-md-5ths col-sm-4 col-xs-6">
-	       <a href=""><img src="images/snacks-icon.svg" class="img-responsive center-block">
+	       <a href="#snacks"><img src="images/snacks-icon.svg" class="img-responsive center-block" onerror="this.src='images/snacks-icon-error.png'">
 	            <h4>Snacks</h4>
 	       </a>
 	    </div>
 
 	    <div class="icons-home col-md-5ths col-sm-4 col-xs-6">
-	       <a href=""><img src="images/smoothies-icon.svg" class="img-responsive center-block">
+	       <a href="#smoothies"><img src="images/smoothies-icon.svg" class="img-responsive center-block" onerror="this.src='images/smoothies-icon-error.png'">
 	            <h4>Smoothies</h4>
 	       </a>
 	    </div>
 
 	    <div class="icons-home col-md-5ths col-sm-4 col-xs-6">
-	       <a href=""><img src="images/vegan-icon.svg" class="img-responsive center-block">
+	       <a href="#vegan"><img src="images/vegan-icon.svg" class="img-responsive center-block" onerror="this.src='images/vegan-icon-error.png'">
 	            <h4>Vegan</h4>
 	       </a>
 	    </div>
@@ -69,7 +69,7 @@
 
 	<hr>
 
-	<h1 class="heading-center">SMOOTHIES</h1>
+	<h1 class="heading-center" id="smoothies">SMOOTHIES</h1>
 
 	<?php if(count($smoothies) > 0): ?>
 
@@ -95,7 +95,7 @@
 
 <!-- Snacks Section -->
 
-	<h1 class="heading-center">SNACKS</h1>
+	<h1 class="heading-center" id="snacks">SNACKS</h1>
 
 	<?php if(count($snacks) > 0): ?>
 
@@ -119,7 +119,7 @@
 
 <!-- Desserts Section -->
 
-	<h1 class="heading-center">DESSERTS</h1>
+	<h1 class="heading-center" id="desserts">DESSERTS</h1>
 
 	<?php if(count($desserts) > 0): ?>
 

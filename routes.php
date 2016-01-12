@@ -130,6 +130,22 @@ try {
 		break;
 
 
+	case 'comment.create':
+
+		$controller = new CommentController();
+		$controller->create();
+
+		break;	
+
+
+	case "search":
+
+		$controller = new SearchController();
+		$controller->search();
+
+		break;
+
+
 	default:
 		$controller = new ErrorController();
 		$controller->error404();

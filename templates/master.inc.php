@@ -34,7 +34,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="./">
-            <img alt="Brand" src="images/kitk-nav-logo.svg">
+            <img alt="Brand" src="images/kitk-nav-logo.svg" onerror="this.src='images/kitk-nav-logo-error.png'">
           </a>
         </div>
 

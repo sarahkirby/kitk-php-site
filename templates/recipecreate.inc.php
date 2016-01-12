@@ -40,57 +40,44 @@ if($recipe->id){
 
               <div class="form-group <?php if($errors['description']): ?> has-error <?php endif; ?>">
                 <label for="description" class="control-label">Description </label>
-                <textarea class="form-control" id="description" name="description" placeholder="Description of recipe" rows="5">
-                  <?php echo $recipe->description; ?>
-                </textarea>
-                <div class="help-block">
-                  <?php echo $errors['description']; ?>
-                </div>
+                <textarea class="form-control" id="description" name="description" placeholder="Description of recipe" rows="5"><?php echo $recipe->description; ?></textarea>
+                <div class="help-block"><?php echo $errors['description']; ?></div>
               </div>
 
               <div class="form-group <?php if($errors['ingredients']): ?> has-error <?php endif; ?>">
                 <label for="ingredients" class="control-label">Ingredients </label>
-                <textarea class="form-control" id="ingredients" name="ingredients" placeholder="List ingredients" rows="8">
-                  <?php echo $recipe->ingredients; ?>
-                </textarea>
-                <div class="help-block">
-                  <?php echo $errors['ingredients']; ?>
-                </div>
+                <textarea class="form-control" id="ingredients" name="ingredients" placeholder="List ingredients" rows="8"><?php echo $recipe->ingredients; ?></textarea>
+                <div class="help-block"><?php echo $errors['ingredients']; ?></div>
               </div>
 
               <div class="form-group <?php if($errors['category']): ?> has-error <?php endif; ?>">
                 <label for="category" class="control-label">category </label>
-                <textarea class="form-control" id="category" name="category" placeholder="smoothie" rows="1">
-                  <?php echo $recipe->category; ?>
-                </textarea>
-                <div class="help-block">
-                  <?php echo $errors['category']; ?>
-                </div>
+                <textarea class="form-control" id="category" name="category" placeholder="smoothie" rows="1"><?php echo $recipe->category; ?></textarea>
+                <div class="help-block"><?php echo $errors['category']; ?></div>
               </div>
 
               <div class="form-group <?php if($errors['poster']): ?> has-error <?php endif; ?>">
-                <label for="poster" class="control-label">Poster Image </label>
-                <div>
-                  <input type="file" class="form-control" id="poster" name="poster" value="<?= $recipe->poster; ?>">
-                </div>
-                <?php if($recipe->poster != ""): ?>
+                  <label for="poster" class="control-label">Poster Image </label>
                   <div>
-                    <img src="./images/poster/300h/<?= $recipe->poster ?>" alt="image">
+                    <input type="file" class="form-control" id="poster" name="poster">
                   </div>
-                  <div>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox" name="removeImage" value="true">Remove Image</label>
+                  <?php if($recipe->poster != ""): ?>
+                    <div>
+                      <img src="./images/poster/300h/<?= $recipe->poster ?>" alt="image">
                     </div>
-                  </div>
+                    <div>
+                      <div class="checkbox">
+                        <label><input type="checkbox" name="removeImage" value="true">Remove Image</label>
+                      </div>
+                    </div>
 
                   <?php else: ?>
                     <div>
-                      <p><small>No poster found for this Recipe</small></p>
+                      <p><small>No poster found for this movie</small></p>
                     </div>
 
-                    <?php endif; ?>
-              </div>
+                  <?php endif; ?>
+                </div>
 
 
               <div class="form-group <?php if($errors['tags']): ?> has-error <?php endif; ?>">
