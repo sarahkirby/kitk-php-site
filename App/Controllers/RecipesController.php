@@ -18,9 +18,11 @@ class RecipesController extends Controller
 		$smoothies = Recipes::allBy("category", "smoothie", "category", false);
 		$snacks = Recipes::allBy("category", "snack", "category", true);
 		$desserts = Recipes::allBy("category", "dessert", "category", false);
+		$glutenfree = Recipes::allBy("category", "glutenfree", "category");
+		$vegan = Recipes::allBy("category", "vegan", "category");
 
 
-		$view = new RecipesView(compact('recmain', 'smoothies', 'snacks', 'desserts'));
+		$view = new RecipesView(compact('recmain', 'smoothies', 'snacks', 'desserts', 'glutenfree', 'vegan'));
 		$view->render();
 	}
 	public function singlepage()

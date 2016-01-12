@@ -138,7 +138,94 @@
 	    <?php endif; ?>
 	</div> <!-- desserts row-->
 
+	<hr>
+	
+<!-- Vegan Section -->
 
+	<h1 class="heading-center" id="vegan">VEGAN</h1>
+
+		<?php if(count($vegan) > 0): ?>
+
+		<div class="latest-recipes row">
+			<?php foreach ($vegan as $veg): ?>
+					<div class="col-md-3 col-sm-6">
+		                    <img src="./images/poster/300h/<?= $veg->poster ?>" alt="<?= $veg->title ?> Recipe" class="img-responsive center-block">
+		                    <h2><?= $veg->title; ?></h2>
+		                    <h4><a href="?page=recipe&amp;id=<?= $veg->id; ?>">READ MORE</a></h4>
+		            </div>
+		        <?php endforeach; ?>
+		    
+
+		    <?php else: ?>
+		        <p>Recipe currently unavaliable.</p>
+		    <?php endif; ?>
+		</div> <!-- vegan row-->
+
+<hr>
+
+<!-- Gluten Free Section -->
+
+	<h1 class="heading-center" id="glutenfree">GLUTEN FREE</h1>
+
+		<?php if(count($glutenfree) > 0): ?>
+
+		<div class="latest-recipes row">
+			<?php foreach ($glutenfree as $gf): ?>
+					<div class="col-md-3 col-sm-6">
+		                    <img src="./images/poster/300h/<?= $gf->poster ?>" alt="<?= $gf->title ?> Recipe" class="img-responsive center-block">
+		                    <h2><?= $gf->title; ?></h2>
+		                    <h4><a href="?page=recipe&amp;id=<?= $gf->id; ?>">READ MORE</a></h4>
+		            </div>
+		        <?php endforeach; ?>
+		    
+
+		    <?php else: ?>
+		        <p>Recipe currently unavaliable.</p>
+		    <?php endif; ?>
+		</div> <!-- glutenfree row-->
+
+
+		<hr>
+
+
+
+		<!-- <h1 class="heading-center">REQUEST A RECIPE!</h1> -->
+
+
+
+      <div class="nl-signup col-centered">
+            <h1 class="heading-script">Request a Recipe!</h1>
+            <p>Sign up below for a monthly newsletter including recipes, give aways and more!</p>
+
+            <form id="request" action="?page=request" method="POST">
+            
+            
+              <div class="form-group <?php if ($request['error']['name']):?> has-error <?php endif; ?>">
+                <label for="request-name" class="control-label">Name</label>
+                <input class="form-control" id="request-name" name="name" value="<?php echo $request['name']; ?>">
+                <span id="helpBlock" class="help-block"><?php echo $request['error']['name']; ?></span>
+              </div>
+
+              <div class="form-group <?php if ($request['error']['email']):?> has-error <?php endif ; ?>">
+                <label for="email" class="control-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.com" value="<?php echo $request['email']; ?>">
+                <span id="helpBlock" class="help-block"><?php echo $request['error']['email']; ?></span>
+              </div>
+
+              <div class="form-group <?php if ($request['error']['request']):?> has-error <?php endif ; ?>">
+                <label for="request" class="control-label">Recipe Request</label>
+                <input type="textarea" class="form-control" id="request" name="request" value="<?php echo $request['request']; ?>">
+                <span id="helpBlock" class="help-block"><?php echo $request['error']['request']; ?></span>
+              </div>
+
+              <div class="form-group">
+                <button class="btn btn-success" name="request-var">GO</button>
+              </div>
+
+            </form>
+        </div>
+
+		
 
 
 

@@ -12,7 +12,7 @@ class HomeView extends TemplateView
 		extract($this->data);
 
 		$page = "index";
-		var_dump($newsletter);
+		// var_dump($newsletter);
 		$page_title = "Katie in the Kitchen";
 		include "templates/master.inc.php";
 	}
