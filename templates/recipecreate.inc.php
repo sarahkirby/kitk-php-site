@@ -1,5 +1,7 @@
 <?php
+
 //  object from Movie controller. Holds our data. Now is being used to display errors.
+
 $errors = $recipe->errors; 
 // if movie id is set. (Currently not set on this page).
 $verb = ( $recipe->id ? "EDIT" : "ADD");
@@ -63,7 +65,7 @@ if($recipe->id){
                   </div>
                   <?php if($recipe->poster != ""): ?>
                     <div>
-                      <img src="./images/poster/300h/<?= $recipe->poster ?>" alt="image">
+                      <img src="./images/poster/300h/<?=$recipe->poster ?>" alt="image">
                     </div>
                     <div>
                       <div class="checkbox">

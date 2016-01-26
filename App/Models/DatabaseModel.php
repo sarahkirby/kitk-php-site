@@ -36,7 +36,7 @@ abstract class DatabaseModel
 		
 		
 
-		if(is_integer($input) && $input > 0 ){
+		if(is_numeric($input) && $input > 0 ){
 			//if input is a number, load that record from the db
 			$this->find($input);
 		}
@@ -256,6 +256,7 @@ abstract class DatabaseModel
 	}
 	public function save()
 	{
+
 		if($this->id > 0){
 			$this->update();
 		} else {
@@ -266,6 +267,7 @@ abstract class DatabaseModel
 	# insert record into database
 	public function insert()
 	{
+
 		$db = static::getDatabaseConnection();
 
 		$columns = static::$columns;
@@ -301,10 +303,11 @@ abstract class DatabaseModel
 
 	public function update()
 	{
+
 		$db = static::getDatabaseConnection();
 
 		$columns = static::$columns;
-
+		
 		unset($columns[array_search('id', $columns)]);
 		
 		$query = "UPDATE " . static::$tableName . " SET ";
@@ -316,15 +319,18 @@ abstract class DatabaseModel
 		}
 
 		$query .= implode(", ", $updatecols);
+		
+		
 		$query .= " WHERE id =:id";
 
 		$statement = $db->prepare($query);
-		// var_dump($statement);
 
 		foreach (static::$columns as $column) {
-			$statement->bindValue(":" . $column, $this->$column);
+			$statement->bindValue(":".$column, $this->$column);
 		}
+		
 		$statement->execute();
+
 	}
 
 	public function isValid()

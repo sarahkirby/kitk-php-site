@@ -73,14 +73,14 @@ class RecipesController extends Controller
 		$recipe = $this->getFormData($_GET['id']);
 		$recipe->loadTags();
 
-
 		$view = new RecipeCreateView(compact('recipe', 'tags'));
 		$view->render();
 	}
 	public function update()
 	{
+		
 		static::$auth->mustBeAdmin();
-
+		
 		$recipe = new Recipes($_POST['id']);
 		$recipe->processArray($_POST);
 
@@ -100,9 +100,9 @@ class RecipesController extends Controller
 			$recipe->poster = null;
 		}
 
-
 		$recipe->save();
-		$recipe->saveTags();
+
+		// $recipe->saveTags();
 		header("Location: ?page=recipe&id=" . $recipe->id);
 	}
 	public function destroy()
@@ -121,6 +121,7 @@ class RecipesController extends Controller
 			// new page for form if movies is not set. Refreshed.
 			$recipe = new Recipes((int)$id);
 		}
+
 		return $recipe;
 	}
 	public function getCommentFormData($id = null){

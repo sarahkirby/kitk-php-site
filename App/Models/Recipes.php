@@ -172,8 +172,6 @@ class Recipes extends DatabaseModel
 		}
 		// creates unique file name - temporary file name
 		$newFileName = uniqid() . $extentsion;
-		// var_dump($newFileName);
-
 
 		// create new folder
 		$folder = "./images/poster/originals";
@@ -188,6 +186,8 @@ class Recipes extends DatabaseModel
 
 		// poster comes from the table columns
 		$this->poster = $newFileName;
+		
+
 
 		// 2400x300
 		if (! is_dir("./images/poster/300h/")){
@@ -199,7 +199,7 @@ class Recipes extends DatabaseModel
 		$img->fit(300,300);
 		//  size image in this destination
 		$img->save("./images/poster/300h/" . $newFileName);
-
+		
 		// 80x100
 		if (! is_dir("./images/poster/100h/")){
 			mkdir("./images/poster/100h/" , 0777, true);
@@ -208,6 +208,8 @@ class Recipes extends DatabaseModel
 		$img = Image::make($destination);
 		$img->fit(600,600);
 		$img->save("./images/poster/100h/" . $newFileName);
+		
+		
 	}
 	public static function search($searchQuery)
 	{

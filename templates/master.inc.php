@@ -67,7 +67,7 @@
             <li <?php if($page === "auth.login"): ?>class="active" <?php endif ;?>><a href="?page=login">Login</a></li>
           <?php else: ?>
             <li><a href="#"><?= static::$auth->user()->username; ?></a></li>
-            <li><a href=".\?page=logout">Logout</a></li>
+            <li><a href="?page=logout">Logout</a></li>
           <?php endif; ?>
           </ul>
 
@@ -115,6 +115,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/live-validation.js"></script>
     <script src="js/swiper.min.js"></script>
     <script src="js/taggle.min.js"></script>
     <script src="js/main.js"></script>

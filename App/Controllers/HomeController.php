@@ -15,8 +15,9 @@ class HomeController extends Controller
 		$pageSize = 4;
 		$recipes = Recipes::all("date_created", false, $pageNumber, $pageSize);	
 		$newsletter = $this->getNewsletterData();
+		$requestform = $this->getRequestRecipeFormData();
 		
-		$view = new HomeView(compact('recipes', 'newsletter', 'pageNumber', 'pageSize'));
+		$view = new HomeView(compact('recipes', 'newsletter', 'requestform', 'pageNumber', 'pageSize'));
 		$view->render();
 	}
 
@@ -40,6 +41,27 @@ class HomeController extends Controller
 			];
 		}
 		return $newsletter;
+	}
+	public function getRequestRecipeFormData()
+	{
+		// When do you use session and when post?
+		if(isset($_SESSION['requestform'])){
+			$requestform = $_SESSION['requestform'];
+
+			//clear input when page is refreshed
+		} else {
+			$requestform = [
+				'name' => "",
+				'email' => "",
+				'reciperequest' => "",
+				'error' => [
+					'name' => "",
+					'email' => "",
+					'reciperequest' => ""
+				]
+			];
+		}
+		return $requestform;
 	}
 
 }

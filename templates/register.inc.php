@@ -14,6 +14,7 @@ $errors = $user->errors;
       <div class="form-group <?php if($errors['username']): ?> has-error <?php endif; ?>">
         <label for="username" class="control-label">User Name</label>
         <input class="form-control" id="username" name="username" value="<?php echo $user->username; ?>">
+        <span id="username-message"></span>
       </div>
     </div>
 
@@ -23,6 +24,7 @@ $errors = $user->errors;
         <label for="email" class="control-label">Email Address</label>
         <input class="form-control" id="email" name="email" placeholder="example@example.com" value="<?php echo $user->email; ?>">
         <div class="help-block"><?php echo $errors['email']; ?></div>
+        <span id="email-message"></span>
       </div>
     </div>
 
