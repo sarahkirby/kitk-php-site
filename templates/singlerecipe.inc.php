@@ -57,7 +57,7 @@
               <div class="form-group <?php if ($errors['comment']): ?> has-error <?php endif; ?>">
                 <label for="comment" class="col-sm-4 col-md-2 control-label">Comment</label>
                 <div class="col-sm-8 col-md-10">
-                  <textarea id="comment" class="form-control" name="comment" rows="5"></textarea>
+                  <textarea id="comment" class="form-control" name="comment" rows="5"><?php if(isset($_POST['comment'])) echo htmlspecialchars($_POST['comment']); ?></textarea>
                   <div class="help-block"><?= $errors['comment']; ?></div>
                 </div>
               </div>

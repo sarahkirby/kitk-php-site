@@ -10,8 +10,10 @@ class CommentController extends Controller
 public function create()
 	{
 		$input = $_POST;
+
 		
 		$input['user_id'] = static::$auth->user()->id;
+		$input['comment'] = htmlspecialchars($input['comment'], ENT_QUOTES);
 		// var_dump($_POST);
 		$newcomment = new Comment($input);
 		// var_dump($newcomment);
