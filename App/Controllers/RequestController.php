@@ -80,10 +80,9 @@ class RequestController
 
 		// validate form data - true or false
 		if (! $this->isFormValid() ) {
-
 			// Storing input values. So if there is an error the user's input is retained.
 			$_SESSION['requestform'] = $this->requestform;
-			header("Location:./#requestform");
+			header("Location: ?page=recipes#request");
 			return;
 		}
 		echo "Success";

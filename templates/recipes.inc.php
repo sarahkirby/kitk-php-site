@@ -200,22 +200,22 @@
             <form id="request" action="?page=request" method="POST">
             
             
-              <div class="form-group <?php if ($request['error']['name']):?> has-error <?php endif; ?>">
+              <div class="form-group <?php if ($requestform['error']['name']):?> has-error <?php endif; ?>">
                 <label for="request-name" class="control-label">Name</label>
-                <input class="form-control" id="request-name" name="name" value="<?php echo $request['name']; ?>">
-                <span id="helpBlock" class="help-block"><?php echo $request['error']['name']; ?></span>
+                <input class="form-control" id="request-name" name="name" value="<?php echo $requestform['name']; ?>">
+                <span id="helpBlock" class="help-block"><?php echo $requestform['error']['name']; ?></span>
               </div>
 
-              <div class="form-group <?php if ($request['error']['email']):?> has-error <?php endif ; ?>">
+              <div class="form-group <?php if ($requestform['error']['email']):?> has-error <?php endif ; ?>">
                 <label for="email" class="control-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.com" value="<?php echo $request['email']; ?>">
-                <span id="helpBlock" class="help-block"><?php echo $request['error']['email']; ?></span>
+                <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.com" value="<?php echo $requestform['email']; ?>">
+                <span id="helpBlock" class="help-block"><?php echo $requestform['error']['email']; ?></span>
               </div>
 
-              <div class="form-group <?php if ($request['error']['request']):?> has-error <?php endif ; ?>">
+              <div class="form-group <?php if ($requestform['error']['reciperequest']):?> has-error <?php endif ; ?>">
                 <label for="request" class="control-label">Recipe Request</label>
-                <input type="textarea" class="form-control" id="request" name="request" value="<?php echo $request['request']; ?>">
-                <span id="helpBlock" class="help-block"><?php echo $request['error']['request']; ?></span>
+                <input type="textarea" class="form-control" id="request" name="request" value="<?php echo $requestform['reciperequest']; ?>">
+                <span id="helpBlock" class="help-block"><?php echo $requestform['error']['reciperequest']; ?></span>
               </div>
 
               <div class="form-group">

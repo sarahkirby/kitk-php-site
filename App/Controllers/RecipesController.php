@@ -20,9 +20,9 @@ class RecipesController extends Controller
 		$desserts = Recipes::allBy("category", "dessert", "category", false);
 		$glutenfree = Recipes::allBy("category", "glutenfree", "category");
 		$vegan = Recipes::allBy("category", "vegan", "category");
+		$requestform = $this->getRequestRecipeFormData();
 
-
-		$view = new RecipesView(compact('recmain', 'smoothies', 'snacks', 'desserts', 'glutenfree', 'vegan'));
+		$view = new RecipesView(compact('recmain', 'smoothies', 'snacks', 'desserts', 'glutenfree', 'vegan', 'requestform'));
 		$view->render();
 	}
 	public function singlepage()
@@ -133,6 +133,27 @@ class RecipesController extends Controller
 			$newcomment = new Comment((int)$id);
 		}
 		return $newcomment;
+	}
+	public function getRequestRecipeFormData()
+	{
+		// When do you use session and when post?
+		if(isset($_SESSION['requestform'])){
+			$requestform = $_SESSION['requestform'];
+
+			//clear input when page is refreshed
+		} else {
+			$requestform = [
+				'name' => "",
+				'email' => "",
+				'reciperequest' => "",
+				'error' => [
+					'name' => "",
+					'email' => "",
+					'reciperequest' => ""
+				]
+			];
+		}
+		return $requestform;
 	}
 }
 	
