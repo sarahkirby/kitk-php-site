@@ -1,7 +1,24 @@
-<div class="row">
-	<div class="col-xs-12">
-		<h1>Thanks for your suggestion!</h1>
-		<p>We have sent you an email and we will be sending an email to the host very soon to include your suggestion.</p>
-		<p>See you at Schlocktoberfest!</p>
+<?php
+	if($_POST['reciperequest']){
+
+	  	$insertHeaderContent = "your recipe suggestion!";
+	  	$pContent = "Keep an eye out as Katie will recreate your recipe very soon!";
+
+	} else {
+
+  		$insertHeaderContent = "signing up to our newsletter!";
+  		$pContent = "Newsletter's will be emailed once a month.";
+
+	}
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1>Thank-you for <?= $insertHeaderContent; ?></h1>
+			<p><?= $pContent; ?></p>
+			<br>
+			<p>K x</p>
+		</div>
 	</div>
 </div>

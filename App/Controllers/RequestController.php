@@ -72,11 +72,10 @@ class RequestController
 
 	public function show()
 	{
-
 		$this->resetSessionData();
 
 		// capture suggester data
-		$this->getREcipeRequestFormData();
+		$this->getRecipeRequestFormData();
 
 		// validate form data - true or false
 		if (! $this->isFormValid() ) {
@@ -85,11 +84,10 @@ class RequestController
 			header("Location: ?page=recipes#request");
 			return;
 		}
-		echo "Success";
 
 		// once form is validated - get sucessview page and show in browser (render();).
-		// $view = new RecipeRequestSuccessView();
-		// $view->render();
+		$view = new NewsletterSuccessView($this->requestform);
+		$view->render();
 
 		//send email to the suggester
 		// $suggesterEmail = new ThankyouEmailView($this->requestform);

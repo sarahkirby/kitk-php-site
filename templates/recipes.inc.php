@@ -214,12 +214,12 @@
 
               <div class="form-group <?php if ($requestform['error']['reciperequest']):?> has-error <?php endif ; ?>">
                 <label for="request" class="control-label">Recipe Request</label>
-                <input type="textarea" class="form-control" id="request" name="request" value="<?php echo $requestform['reciperequest']; ?>">
+                <input type="textarea" class="form-control" id="request" name="reciperequest" value="<?php echo $requestform['reciperequest']; ?>">
                 <span id="helpBlock" class="help-block"><?php echo $requestform['error']['reciperequest']; ?></span>
               </div>
 
               <div class="form-group">
-                <button class="btn btn-success" name="request-var">GO</button>
+                <button class="btn btn-success">GO</button>
               </div>
 
             </form>
