@@ -16,7 +16,7 @@
 	<div class="col-md-5 col-sm-12 rec-main-right clear-fix">
 		<img src="images/logo-banner.svg" class="img-responsive center-block" alt="Katie in the Kitchen logo" onerror="this.src='images/logo-banner-error.png'">
 		<h1 class="heading-script"><?= $recipe->title; ?></h1>
-		<p><?= $recipe->subtitle; ?></p>
+		<h4><?= $recipe->subtitle; ?></h4>
 		<hr class="underline">
 			<p><?= $recipe->ingredients; ?></p>
 

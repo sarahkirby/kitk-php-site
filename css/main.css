@@ -394,6 +394,9 @@ label {
 .rec-main-right {
 	padding: 13vw 0;
 	background-color: #F5F7F7;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 .rec-main-right > img {
 	zoom: 0.5;
@@ -403,14 +406,28 @@ label {
 	padding-bottom: 0.4em;
 	font-size: 3em;
 }
-.rec-main-right > p {
+.rec-main-right > h4 {
 	text-align: center;
 	color: #D1B674;
 }
 .underline {
 	width: 300px;
 }
-.rec-main-right ul {
+.rec-main-right > p {
+	text-align: center;
+	align-self: center;
+	line-height: 2.5em;
+	max-width: 400px;
+	padding-top: 2vh;
+	padding-bottom: 3vh;
+	font-size: 1.1em;
+	color: #D1B674;
+}
+.rec-main-right > p:last-child {
+	padding: 0;
+	margin: 0;
+}
+/*.rec-main-right ul {
 	padding-top: 2vh;
 	padding-bottom: 3vh;
 	padding-left: 22%;
@@ -421,7 +438,7 @@ label {
 	line-height: 1.8em;
 	font-size: 1.1em;
 	max-width: 400px;
-}
+}*/
 
 /*-----Single Recipe Page-----*/
 
