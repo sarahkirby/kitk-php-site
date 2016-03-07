@@ -137,41 +137,8 @@
     <?php else: ?>
       
       <h1 class="heading-center">REQUEST A RECIPE!</h1>
-      <p>Click here to request KITK's take on your favourite recipe.</p>
+      <p><a href="?recipes#request">Click here</a> to request KITK's take on your favourite recipe.</p>
 
-
-
-      <div class="nl-signup col-centered">
-            <h1 class="heading-script">Request a Recipe!</h1>
-            <p>Sign up below for a monthly newsletter including recipes, give aways and more!</p>
-
-            <form id="requestform" action="?page=request" method="POST">
-            
-            
-              <div class="form-group <?php if ($requestform['error']['name']):?> has-error <?php endif; ?>">
-                <label for="request-name" class="control-label">Name</label>
-                <input class="form-control" id="request-name" name="name" value="<?php echo $requestform['name']; ?>">
-                <span id="helpBlock" class="help-block"><?php echo $requestform['error']['name']; ?></span>
-              </div>
-
-              <div class="form-group <?php if ($requestform['error']['email']):?> has-error <?php endif ; ?>">
-                <label for="email" class="control-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="example@mail.com" value="<?php echo $requestform['email']; ?>">
-                <span id="helpBlock" class="help-block"><?php echo $requestform['error']['email']; ?></span>
-              </div>
-
-              <div class="form-group <?php if ($requestform['error']['reciperequest']):?> has-error <?php endif ; ?>">
-                <label for="request" class="control-label">Recipe Request</label>
-                <input type="textarea" class="form-control" id="request" name="reciperequest" value="<?=$requestform['reciperequest']; ?>">
-                <span id="helpBlock" class="help-block"><?php echo $requestform['error']['reciperequest']; ?></span>
-              </div>
-
-              <div class="form-group">
-                <button class="btn btn-success">GO</button>
-              </div>
-
-            </form>
-        </div>
 
 
     <?php endif; ?>
