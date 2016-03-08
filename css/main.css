@@ -160,6 +160,9 @@ hr {
 	padding-bottom: 1em;
 	text-align: center;
 }
+.nl-signup > .heading-script {
+	padding-bottom: .3em;
+}
 .nl-signup > h1 {
 	line-height: 1.2em;
 	text-align: center;

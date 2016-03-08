@@ -195,7 +195,7 @@
 
       <div class="nl-signup col-centered">
             <h1 class="heading-script">Request a Recipe!</h1>
-            <p>Sign up below for a monthly newsletter including recipes, give aways and more!</p>
+            <p>Suggest your favourite recipe for Katie in the Kitchen to create next!</p>
 
             <form id="request" action="?page=request" method="POST">
             
