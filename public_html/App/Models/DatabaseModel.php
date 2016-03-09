@@ -51,10 +51,10 @@ abstract class DatabaseModel
 	protected static function getDatabaseConnection()
 	{
 		if (! self::$db) {
-			$dsn = 'mysql:host=localhost;dbname=kitk;charset=utf8';
+			$dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8';
 			// https://www.youtube.com/watch?v=QtCdk459NFg
 			// first property - host, database name. 2. Username 3. password
-			self::$db = new PDO($dsn, 'root', '');
+			self::$db = new PDO($dsn, DB_USER, DB_PASSWORD);
 
 		// turning on error mode, catching errors.
 		self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -86,12 +86,12 @@ class RequestController
 		}
 
 		// once form is validated - get sucessview page and show in browser (render();).
-		$view = new NewsletterSuccessView($this->requestform);
+		$view = new NewsletterSuccessView();
 		$view->render();
 
 		//send email to the suggester
-		// $suggesterEmail = new ThankyouEmailView($this->requestform);
-		// $suggesterEmail->render();
+		$suggesterEmail = new ThankyouEmailView($this->requestform);
+		$suggesterEmail->render();
 		
 
 		# send email to host

@@ -13,8 +13,8 @@ abstract class EmailView extends View
 		# Instantiate the client.
 
 		# creating new object with mailgun API (class already made)
-		$mgClient = new Mailgun('key-da60199e912bcaac6368c287959ff499');
-		$domain = "sandbox0a4f558326d949d0a0b1659e0d84d940.mailgun.org";
+		$mgClient = new Mailgun(MAILGUN_KEY);
+		$domain = MAILGUN_DOMAIN;
 
 		// store output in internal buffer but don't do anything with it yet
 		ob_start();
