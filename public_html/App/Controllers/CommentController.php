@@ -22,12 +22,12 @@ public function create()
 			// name of session. Storing comment if not valid
 			$_SESSION['comment.form'] = $newcomment;
 			// no $ infront of movie_if because it is a value not a variable
-			header("Location:?page=recipe&id=" . $newcomment->recipe_id);
+			header("Location:?page=recipe&id=" . $newcomment->recipe_id . "#comment");
 			exit();
 		}
 		$newcomment->save();
 
-		header("Location: ?page=recipe&id=" . $newcomment->recipe_id . "#comment-" . $newcomment->id);
+		header("Location: ?page=recipe&id=" . $newcomment->recipe_id . "#comment");
 
 
 	}

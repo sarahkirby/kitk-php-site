@@ -71,9 +71,8 @@
 
 	<h1 class="heading-center" id="smoothies">SMOOTHIES</h1>
 
+	<div class="latest-recipes row">
 	<?php if(count($smoothies) > 0): ?>
-
-    <div class="latest-recipes row">
     
         <?php foreach ($smoothies as $smoothie): ?>
         
@@ -97,9 +96,9 @@
 
 	<h1 class="heading-center" id="snacks">SNACKS</h1>
 
+	<div class="latest-recipes row">
 	<?php if(count($snacks) > 0): ?>
 
-	<div class="latest-recipes row">
 		<?php foreach ($snacks as $snack): ?>
 
 				<div class="col-md-3 col-sm-6">
@@ -121,9 +120,9 @@
 
 	<h1 class="heading-center" id="desserts">DESSERTS</h1>
 
+	<div class="latest-recipes row">
 	<?php if(count($desserts) > 0): ?>
 
-	<div class="latest-recipes row">
 		<?php foreach ($desserts as $dessert): ?>
 				<div class="col-md-3 col-sm-6">
 	                    <img src="./images/poster/300h/<?= $dessert->poster ?>" alt="<?= $dessert->title ?> Recipe" class="img-responsive center-block">
@@ -143,10 +142,10 @@
 <!-- Vegan Section -->
 
 	<h1 class="heading-center" id="vegan">VEGAN</h1>
-
+	
+	<div class="latest-recipes row">
 		<?php if(count($vegan) > 0): ?>
 
-		<div class="latest-recipes row">
 			<?php foreach ($vegan as $veg): ?>
 					<div class="col-md-3 col-sm-6">
 		                    <img src="./images/poster/300h/<?= $veg->poster ?>" alt="<?= $veg->title ?> Recipe" class="img-responsive center-block">
@@ -161,15 +160,16 @@
 		    <?php endif; ?>
 		</div> <!-- vegan row-->
 
+
 <hr>
 
 <!-- Gluten Free Section -->
 
 	<h1 class="heading-center" id="glutenfree">GLUTEN FREE</h1>
 
+	<div class="latest-recipes row">
 		<?php if(count($glutenfree) > 0): ?>
 
-		<div class="latest-recipes row">
 			<?php foreach ($glutenfree as $gf): ?>
 					<div class="col-md-3 col-sm-6">
 		                    <img src="./images/poster/300h/<?= $gf->poster ?>" alt="<?= $gf->title ?> Recipe" class="img-responsive center-block">
@@ -191,9 +191,16 @@
 
 		<!-- <h1 class="heading-center">REQUEST A RECIPE!</h1> -->
 
+<?php if(! static::$auth->check()): ?>
+
+		<h1 class="heading-center">REQUEST A RECIPE!</h1>
+      	<p><a href="?page=register">Register</a> or <a href="?page=login">Login</a> to request KITK's take on your favourite recipe.</p>
+      
 
 
-      <div class="nl-signup col-centered">
+<?php else: ?>
+
+		<div class="nl-signup col-centered">
             <h1 class="heading-script">Request a Recipe!</h1>
             <p>Suggest your favourite recipe for Katie in the Kitchen to create next!</p>
 
@@ -223,14 +230,10 @@
               </div>
 
             </form>
+
+<?php endif; ?>
+
         </div>
-
-		
-
-
-
-
-
 
 </div> <!-- container  -->
 

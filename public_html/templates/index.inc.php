@@ -137,8 +137,7 @@
     <?php else: ?>
       
       <h1 class="heading-center">REQUEST A RECIPE!</h1>
-      <p><a href="?recipes#request">Click here</a> to request KITK's take on your favourite recipe.</p>
-
+      <p><a href="?page=recipes#request">Click here</a> to request KITK's take on your favourite recipe.</p>
 
 
     <?php endif; ?>

@@ -6,7 +6,7 @@ $errors = $user->errors;
 <div class="container reg-form">
   <h1 class="heading-script">Login</h1>
   <?php if($error): ?>
-    <div class="alert alert-danger" role="alert">Nope. No user by that email with that password was found.</div>
+    <div class="alert alert-danger" role="alert">Incorrect email or password. Please try again.</div>
   <?php endif; ?>
 
   <form id="registerNewUser" action="?page=auth.attempt" method="POST">

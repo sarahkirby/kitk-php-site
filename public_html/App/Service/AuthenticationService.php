@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Models\User;
+use App\Models\Exceptions\ModelNotFoundException;
 use App\Service\Exceptions\InsufficientPrivilegesException;
 
 class AuthenticationService
@@ -40,6 +41,7 @@ class AuthenticationService
 			$user = User::findBy('email', $email);
 			#show error in browser through ModelNotFound..
 		} catch (ModelNotFoundException $e) {
+
 			return false;
 		}
 

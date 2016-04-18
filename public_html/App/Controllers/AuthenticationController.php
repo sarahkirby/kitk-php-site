@@ -18,7 +18,6 @@ class AuthenticationController extends Controller
 	}
 	public function store()
 	{
-		$_POST['username'] = htmlspecialchars($_POST['username'], ENT_QUOTES);
 		$_POST['email'] = htmlspecialchars($_POST['email'], ENT_QUOTES);
 		$_POST['password'] = htmlspecialchars($_POST['password'], ENT_QUOTES);
 		$_POST['password2'] = htmlspecialchars($_POST['password2'], ENT_QUOTES);
@@ -49,7 +48,10 @@ class AuthenticationController extends Controller
 	{
 		$_POST['email'] = htmlspecialchars($_POST['email'], ENT_QUOTES);
 		$_POST['password'] = htmlspecialchars($_POST['password'], ENT_QUOTES);
-	
+
+		// $user = new User($_POST);
+		// var_dump($user);
+		// die();
 		# login form - email and pword. These are sent through POST array. auth is found in index.php
 		if(static::$auth->attempt($_POST['email'],$_POST['password'])){
 			// login successful

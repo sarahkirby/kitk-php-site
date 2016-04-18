@@ -245,9 +245,12 @@ abstract class DatabaseModel
 		$statement->execute();
 
 		$record = $statement->fetch(PDO::FETCH_ASSOC);
-		
+
 		if(! $record){
+			// header("Location: ?page=login&error=true");
+			// exit();
 			throw new ModelNotFoundException();
+
 		}
 
 		$obj = new static;
